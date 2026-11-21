@@ -1,0 +1,1992 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%23161817%22/%3E%3Cg transform=%22translate(8 8) scale(.75)%22%3E%3Cpath d=%22M8 9H56%22 stroke=%22%23ECEAE4%22 stroke-width=%222%22/%3E%3Crect x=%225%22 y=%2213%22 width=%2254%22 height=%228%22 fill=%22%23ECEAE4%22/%3E%3Crect x=%2213%22 y=%2221%22 width=%225%22 height=%2234%22 fill=%22%23ECEAE4%22/%3E%3Crect x=%2246%22 y=%2221%22 width=%225%22 height=%2234%22 fill=%22%23ECEAE4%22/%3E%3Cpath d=%22M5 57H59%22 stroke=%22%23C9A877%22 stroke-width=%223%22/%3E%3C/g%3E%3C/svg%3E">
+<title>Pórtico Obra · Os melhores profissionais para a sua obra</title>
+<meta name="description" content="Arquitetos, engenheiros e fornecedores selecionados e avaliados obra a obra. Gratuito para quem vai construir ou reformar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F5F4F0; --surface:#FFFFFF; --ink:#161817; --ink-2:#3E4240; --muted:#5B5F5C;
+  --line:#DCD9D2; --line-soft:#E8E5DF; --brass:#8A6A3B; --brass-light:#C9A877;
+  --dark-text:#ECEAE4; --dark-muted:#A3A39E; --dark-line:#3A3D3B; --err:#9B3B2E;
+  --display:'Archivo',sans-serif; --body:'Hanken Grotesk',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+[hidden]{display:none!important}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.eyebrow{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.eyebrow.brass{color:var(--brass)}
+.dark .eyebrow{color:var(--brass-light)}
+h1,h2,h3{font-family:var(--display);font-weight:500;margin:0}
+h2{font-size:clamp(34px,4vw,52px);line-height:1.04;letter-spacing:-.03em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;font-size:16px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,color .2s;text-align:center}
+.btn-solid{background:var(--ink);color:var(--ground)}
+.btn-solid:hover{background:#2C2F2E}
+.btn-line:hover{background:var(--ink);color:var(--ground)}
+.btn-light{background:var(--dark-text);color:var(--ink);border-color:var(--dark-text)}
+.btn-light:hover{background:var(--brass-light);border-color:var(--brass-light)}
+.btn-brass{background:var(--brass-light);color:var(--ink);border-color:var(--brass-light)}
+.btn-brass:hover{background:#D6B98D}
+.btn:disabled{opacity:.6;cursor:wait}
+.hatch{background-color:#E6E3DC;background-image:repeating-linear-gradient(135deg,rgba(22,24,23,.08) 0 1px,transparent 1px 10px)}
+.ph{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+.dark{background-color:var(--ink);color:var(--dark-text);background-image:linear-gradient(rgba(236,234,228,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(236,234,228,.05) 1px,transparent 1px);background-size:48px 48px}
+.white{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+section.block,.block{padding-top:112px;padding-bottom:112px}
+.head{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.head .t{display:flex;flex-direction:column;gap:16px;max-width:700px}
+.head p.side{margin:0;max-width:420px;font-size:16px;line-height:1.55;color:var(--ink-2)}
+.note{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.demo-bar{background:var(--brass-light);color:var(--ink);font-size:13px;line-height:1.4;text-align:center;padding:8px 16px}
+
+/* NAV */
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(245,244,240,.94);backdrop-filter:blur(8px);z-index:20}
+header.pro-mode{background:rgba(22,24,23,.96);color:var(--dark-text);border-color:#2A2D2C}
+header.pro-mode .logo-sub{color:var(--brass-light)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:16px;padding-bottom:16px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:.18em}
+.logo .logo-word{display:flex;flex-direction:column;gap:3px;line-height:1}
+.logo .logo-sub{font-family:var(--mono);font-weight:400;font-size:.5em;letter-spacing:.62em;color:var(--brass);opacity:1}
+.logo small{font-family:var(--mono);font-size:11px;letter-spacing:.12em;font-weight:400;color:var(--brass-light);border:1px solid #4A4D4B;padding:4px 7px}
+.nav-links{display:flex;gap:30px;font-size:15px}
+.nav-links a:hover{color:var(--brass)}
+header.pro-mode .nav-links a:hover{color:var(--brass-light)}
+.nav-cta{display:flex;gap:8px;align-items:center}
+.nav-cta .btn{min-height:44px;font-size:15px;padding:0 18px}
+header.pro-mode .btn-line{border-color:#6E716F;color:var(--dark-text)}
+header.pro-mode .btn-line:hover{background:var(--dark-text);color:var(--ink)}
+@media (max-width:960px){.nav-links{display:none}}
+@media (max-width:560px){.nav-cta .hide-sm{display:none}}
+
+/* HERO */
+.hero{display:flex;flex-wrap:wrap;gap:64px;padding-top:88px;padding-bottom:96px}
+.hero-copy{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;justify-content:space-between;gap:48px}
+.hero h1{font-size:clamp(44px,6vw,84px);line-height:.98;letter-spacing:-.035em;margin:32px 0}
+.lead{margin:0;max-width:540px;font-size:19px;line-height:1.55;color:var(--ink-2)}
+.dark .lead{color:#B5B4AF}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-actions .free{font-size:14px;color:var(--muted)}
+.hero-visual{flex:1 1 440px;min-width:0}
+.hero-photo{height:420px;display:flex;align-items:flex-end;padding:20px}
+.hero-stats{background:var(--surface);border:1px solid var(--line);border-top:none;padding:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.stat .k{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+.stat .v{display:block;font-family:var(--display);font-size:30px;font-weight:500}
+
+/* PILLARS */
+.pillars .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.pillar{padding:40px 32px;display:flex;flex-direction:column;gap:12px;border-left:1px solid var(--line)}
+.pillar:first-child{border-left:none;padding-left:0}
+.pillar .n{font-family:var(--mono);font-size:12px;color:var(--brass)}
+.pillar h3{font-size:22px}
+.pillar p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+@media (max-width:780px){.pillar{border-left:none;border-top:1px solid var(--line);padding:32px 0}.pillar:first-child{border-top:none}}
+
+/* CAMINHOS */
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px}
+.path{background:var(--surface);border:1px solid var(--line);padding:36px;display:flex;flex-direction:column;gap:24px}
+.path.alt{background:var(--ink);color:var(--dark-text);border-color:var(--ink)}
+.path .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--brass)}
+.path.alt .k{color:var(--brass-light)}
+.path h3{font-size:30px;letter-spacing:-.01em;margin-top:8px}
+.path ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.path li{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--line-soft);font-size:15px;line-height:1.5;color:var(--ink-2)}
+.path.alt li{border-color:#333634;color:#C9C7C1}
+.path li b{font-family:var(--display);font-weight:500;font-size:22px;color:var(--brass);line-height:1.1}
+.path.alt li b{color:var(--brass-light)}
+.path li strong{color:var(--ink);font-weight:600}
+.path.alt li strong{color:var(--dark-text)}
+.path .btn{align-self:flex-start;margin-top:auto}
+.privacy{margin:32px 0 0;display:flex;gap:14px;align-items:center;font-size:16px;color:var(--ink-2)}
+.privacy svg{flex:none}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));border-top:1px solid var(--ink)}
+.dark .steps{border-color:var(--dark-text)}
+.step{padding:28px 28px 8px 0;display:flex;flex-direction:column;gap:14px}
+.step .n{font-family:var(--display);font-size:44px;color:var(--brass);line-height:1}
+.dark .step .n{color:var(--brass-light)}
+.step h3{font-family:var(--body);font-size:18px;font-weight:600}
+.step p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.dark .step p{color:var(--dark-muted)}
+
+/* CURADORIA */
+.cats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:48px}
+.cat{text-align:left;border:none;background:var(--surface);color:var(--ink);padding:22px 20px;display:flex;flex-direction:column;gap:16px;min-height:124px;cursor:pointer;transition:background .2s}
+.cat:hover{background:#FAF9F6}
+.cat .name{font-size:16px;font-weight:500}
+.tick{width:9px;height:18px;border:1px solid #B9B6AE}
+.tick.on{background:var(--ink);border-color:var(--ink)}
+.cat .lbl{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.cat[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+.cat[aria-pressed="true"] .tick{border-color:#6E716F}
+.cat[aria-pressed="true"] .tick.on{background:var(--brass-light);border-color:var(--brass-light)}
+.cat[aria-pressed="true"] .lbl{color:#C9C7C1}
+.pros{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
+.pro{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.pro:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(22,24,23,.35)}
+.pro-photo{height:220px;display:flex;justify-content:space-between;align-items:flex-start;padding:16px}
+.seat{font-family:var(--mono);font-size:11px;background:var(--ground);padding:6px 8px;letter-spacing:.08em}
+.pro-body{padding:24px;display:flex;flex-direction:column;gap:20px;flex:1}
+.pro-top{display:flex;justify-content:space-between;gap:16px}
+.pro h3{font-size:22px;letter-spacing:-.01em;margin-bottom:6px}
+.pro .meta{font-size:14px;color:var(--muted)}
+.score{text-align:right}
+.score .v{font-family:var(--display);font-size:30px;font-weight:500;line-height:1;display:block}
+.score .k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted)}
+.pro-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border-top:1px solid var(--line-soft);padding-top:16px}
+.pro-kpis span{display:block}
+.pro-kpis .k{font-size:12px;color:var(--muted);margin-bottom:4px}
+.pro-kpis .v{font-size:16px;font-weight:500}
+.pro-acts{display:flex;gap:10px;margin-top:auto;border-top:1px solid var(--line-soft);padding-top:16px}
+.pro-acts .btn{flex:1;min-height:44px;font-size:15px;padding:0 14px}
+.empty{padding:56px 40px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.empty h3{font-size:28px;letter-spacing:-.02em}
+.empty p{margin:0;color:var(--ink-2)}
+
+/* INDICE */
+.indice{display:flex;flex-wrap:wrap;gap:72px}
+.indice-copy{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.indice-copy p{margin:0;font-size:17px;line-height:1.6;color:#B5B4AF}
+.indice-copy p.small{font-size:14px;color:var(--dark-muted)}
+.criteria{flex:1 1 560px;min-width:0}
+.crit{display:grid;grid-template-columns:56px minmax(0,1fr) 64px;gap:20px;align-items:center;padding:22px 0;border-top:1px solid var(--dark-line)}
+.crit .n{font-family:var(--mono);font-size:12px;color:var(--brass-light)}
+.crit .t{font-size:18px;font-weight:500;display:block;margin-bottom:4px}
+.crit .d{font-size:14px;color:var(--dark-muted)}
+.crit .w{font-family:var(--mono);font-size:13px;text-align:right}
+.bar{height:2px;background:var(--dark-line);margin-top:10px;position:relative}
+.bar i{position:absolute;left:0;top:0;height:2px;background:var(--brass-light)}
+
+/* PERFIL ILUSTRATIVO */
+.profile{display:flex;flex-wrap:wrap;border:1px solid var(--line);background:var(--surface)}
+.profile-side{flex:1 1 360px;min-width:0;padding:36px;display:flex;flex-direction:column;gap:24px;border-right:1px solid var(--line)}
+.profile-id{display:flex;gap:16px;align-items:center}
+.avatar{width:64px;height:64px;flex:none}
+.profile-id .n{font-family:var(--display);font-size:22px;font-weight:500;display:block;margin-bottom:4px}
+.profile-id .m{font-size:14px;color:var(--muted)}
+.facts{display:flex;flex-direction:column;font-size:15px}
+.facts div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line-soft)}
+.facts div:last-child{border-bottom:none}
+.facts span:first-child{color:var(--muted)}
+.facts span:last-child{text-align:right}
+.profile-main{flex:2 1 520px;min-width:0;padding:36px}
+.table-box{overflow-x:auto}
+.table{width:100%;border-collapse:collapse;font-size:15px;min-width:460px}
+.table th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);font-weight:400;text-align:left;padding:0 12px 14px 0;border-bottom:1px solid var(--ink)}
+.table td{padding:16px 12px 16px 0;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+.table td small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.table .nota{font-family:var(--display);font-size:18px;font-weight:500;text-align:right;padding-right:0}
+.table th:last-child{text-align:right;padding-right:0}
+.profile-main p{margin:16px 0 0;font-size:14px;line-height:1.55;color:var(--ink-2)}
+@media (max-width:900px){.profile-side{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* GUIA + FAQ */
+.guides{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.guide{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--surface);transition:border-color .2s}
+.guide:hover{border-color:var(--ink)}
+.guide .hatch{height:160px;padding:16px}
+.guide-body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.guide-body .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--brass)}
+.guide-body h3{font-size:21px;line-height:1.2}
+.guide-body p{margin:0;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.guide-body .go{margin-top:auto;padding-top:12px;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.faq{border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;gap:24px;font-size:18px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-family:var(--mono);font-weight:400;color:var(--brass);font-size:20px;line-height:1}
+.faq details[open] summary::after{content:'−'}
+.faq details p{margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:var(--ink-2)}
+
+/* FORMULÁRIOS */
+.cta{display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between;align-items:flex-start;padding-top:104px;padding-bottom:104px}
+.cta .ct{flex:1 1 440px;display:flex;flex-direction:column;gap:20px}
+.cta h2{font-size:clamp(36px,5vw,60px);line-height:1.02}
+.cta ul{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#C9C7C1}
+.cta li{display:flex;gap:12px;align-items:flex-start}
+.cta li svg{flex:none;margin-top:4px}
+.form{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.form label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--dark-muted);margin-top:6px;text-transform:uppercase}
+.form input,.form select,.form textarea{font-size:16px;padding:13px 16px;background:transparent;border:1px solid #4A4D4B;color:var(--dark-text);min-height:52px;font-family:var(--body);width:100%}
+.form textarea{min-height:96px;resize:vertical;line-height:1.5}
+.form select option{color:var(--ink)}
+.form input::placeholder,.form textarea::placeholder{color:#8E8E89}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--brass-light)}
+.form .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.form .row>div{display:flex;flex-direction:column;gap:10px}
+.form label.chk{display:flex;gap:12px;align-items:flex-start;font-family:var(--body);font-size:14px;letter-spacing:0;text-transform:none;line-height:1.5;color:inherit;cursor:pointer;margin-top:10px}
+.form label.chk input{width:20px;height:20px;min-height:0;padding:0;margin:1px 0 0;flex:none;accent-color:var(--brass-light)}
+.form label.chk.box{border:1px solid #4A4D4B;padding:14px 16px}
+.form .err{margin:0;min-height:20px;font-size:14px;color:#E8A595}
+.form button[type=submit]{margin-top:6px;min-height:56px}
+.form .ok{display:none;margin:0;font-size:15px;color:var(--brass-light)}
+.form input[readonly]{color:var(--dark-muted)}
+.form .sep{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--brass-light);margin-top:18px;padding-top:16px;border-top:1px solid #333634}
+.form.light label{color:var(--muted)}
+.form.light input,.form.light select,.form.light textarea{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.form.light input:focus,.form.light select:focus,.form.light textarea:focus{border-color:var(--ink)}
+.form.light label.chk{color:var(--ink-2)}
+.form.light label.chk input{accent-color:var(--ink)}
+.form.light label.chk.box{border-color:var(--line);background:var(--surface)}
+.form.light .err{color:var(--err)}
+.form.light .sep{color:var(--brass);border-color:var(--line)}
+
+/* MODAL */
+dialog.modal{border:none;padding:0;max-width:680px;width:calc(100% - 32px);max-height:calc(100vh - 32px);overflow:auto;background:var(--ground);color:var(--ink)}
+dialog.modal::backdrop{background:rgba(22,24,23,.6)}
+.modal-head{padding:28px 32px 0;display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.modal-head h2{font-size:30px;margin-top:8px}
+.modal-head p{margin:8px 0 0;font-size:15px;color:var(--ink-2);line-height:1.5}
+.modal-x{border:none;background:none;font-size:30px;line-height:1;cursor:pointer;min-width:44px;min-height:44px;color:var(--ink)}
+.modal .form{padding:16px 32px 32px}
+@media (max-width:560px){.modal-head{padding:20px 20px 0}.modal .form{padding:12px 20px 24px}}
+
+/* PRO BAND */
+.pro-band{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;padding-top:48px;padding-bottom:48px}
+.pro-band h3{font-size:clamp(24px,3vw,32px);letter-spacing:-.02em}
+.pro-band p{margin:8px 0 0;font-size:15px;color:var(--ink-2)}
+
+/* PÁGINA DO PEDIDO */
+.ped-head{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-end;margin-bottom:32px}
+.ped-head h1{font-size:clamp(34px,4.4vw,56px);letter-spacing:-.03em;line-height:1.04;margin-top:14px;max-width:820px}
+.ped-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:24px}
+.ped-sum div{background:var(--surface);padding:18px 20px;font-size:15px}
+.ped-sum .k{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+.ped-desc{background:var(--surface);border:1px solid var(--line);padding:20px;font-size:15px;line-height:1.6;color:var(--ink-2);margin-bottom:24px;white-space:pre-line}
+.link-box{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;border:1px dashed var(--brass);padding:16px 20px;margin-bottom:56px;font-size:14px;color:var(--ink-2)}
+.link-box .btn{min-height:40px;font-size:14px;padding:0 16px}
+.ped-sec{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:24px}
+.ped-sec h2{font-size:clamp(28px,3vw,40px)}
+.ped-sec p{margin:0;font-size:15px;color:var(--ink-2);max-width:520px;line-height:1.5}
+.int{background:var(--surface);border:1px solid var(--line);padding:24px 28px;display:flex;flex-wrap:wrap;gap:20px 32px;justify-content:space-between;align-items:center;margin-bottom:16px}
+.int .who{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:4px}
+.int .who b{font-family:var(--display);font-weight:500;font-size:23px}
+.int .who .m{font-size:14px;color:var(--muted)}
+.int .msg{font-size:15px;line-height:1.55;color:var(--ink-2);margin-top:10px;white-space:pre-line}
+.int .msg strong{color:var(--ink);font-weight:600}
+.int .int-side{display:flex;flex-direction:column;align-items:flex-end;gap:10px;text-align:right}
+.int .int-side .score .v{font-size:34px}
+.int .done{font-size:14px;color:var(--brass);font-weight:600;max-width:240px}
+.int .wait{font-size:14px;color:var(--muted);max-width:260px}
+.tag-sim{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);padding:3px 6px;align-self:flex-start}
+
+/* GATE */
+.gate{min-height:calc(100vh - 77px);display:flex;flex-wrap:wrap}
+.gate-l{flex:1 1 520px;min-width:0;padding:96px 64px;display:flex;flex-direction:column;justify-content:space-between;gap:48px}
+.gate-l h1{font-size:clamp(40px,5vw,68px);line-height:1;letter-spacing:-.035em;margin:28px 0 24px}
+.gate-l ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:16px;color:#C9C7C1}
+.gate-l li{display:flex;gap:12px;align-items:flex-start}
+.gate-l li svg{flex:none;margin-top:5px}
+.gate-r{flex:1 1 440px;min-width:0;background:var(--ground);color:var(--ink);padding:80px 64px;display:flex;align-items:center}
+.gate-box{width:100%;max-width:440px;display:flex;flex-direction:column;gap:12px}
+.gate-box h2{font-size:32px}
+.gate-box>p{margin:0 0 8px;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.gate-box label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);margin-top:8px}
+.gate-box input,.gate-box select{font-size:16px;padding:0 16px;border:1px solid var(--line);background:var(--surface);min-height:52px;width:100%;color:var(--ink);font-family:var(--body)}
+.gate-box input#cnpj{font-size:22px;font-family:var(--mono);letter-spacing:.04em;min-height:60px}
+.gate-box input:focus,.gate-box select:focus{outline:none;border-color:var(--ink)}
+.gate-box input.bad{border-color:var(--err)}
+.gate-box .grp{display:flex;flex-direction:column;gap:12px}
+.gate-msg{min-height:22px;font-size:14px;margin:4px 0 0}
+.gate-msg.err{color:var(--err)}
+.gate-msg.info{color:var(--muted)}
+.gate-box .btn{min-height:56px}
+.gate-box .fine{font-size:13px;color:var(--muted);line-height:1.5;border-top:1px solid var(--line);padding-top:16px;margin-top:8px}
+.text-btn{all:unset;cursor:pointer;font-size:14px;color:var(--brass);text-decoration:underline;text-underline-offset:3px;align-self:flex-start;padding:8px 0}
+.text-btn:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+@media (max-width:560px){.gate-l,.gate-r{padding:56px 16px}}
+
+/* B2B (candidatos) */
+.welcome{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px;font-size:14px;color:var(--dark-muted);border-bottom:1px solid #2A2D2C}
+.welcome strong{color:var(--dark-text);font-weight:500}
+.welcome .flag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--brass-light);border:1px solid #4A4D4B;padding:5px 8px}
+.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.compare>div{background:var(--surface);padding:36px;display:flex;flex-direction:column;gap:16px}
+.compare>div.us{background:var(--ink);color:var(--dark-text)}
+.compare h3{font-size:24px}
+.compare ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.5}
+.compare li{display:flex;gap:12px;align-items:flex-start;border-top:1px solid var(--line-soft);padding-top:12px}
+.compare .us li{border-color:#333634}
+.compare li svg{flex:none;margin-top:4px}
+.compare .them li{color:var(--ink-2)}
+.seats-table{border:1px solid var(--line);background:var(--surface)}
+.seat-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line-soft);font-size:15px}
+.seat-row:last-child{border-bottom:none}
+.seat-row.h{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);padding-top:16px;padding-bottom:16px;border-bottom:1px solid var(--ink)}
+.seat-row .st{font-family:var(--mono);font-size:12px}
+.seat-row .st.open{color:var(--brass)}
+.plan-wrap{display:flex;flex-wrap:wrap;gap:28px}
+.plan{flex:1 1 380px;min-width:0;padding:40px;display:flex;flex-direction:column;gap:24px}
+.plan.main{background:var(--ink);color:var(--dark-text)}
+.plan.side{background:var(--surface);border:1px solid var(--line)}
+.plan-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.plan h3{font-size:30px;margin-top:8px}
+.tag{font-family:var(--mono);font-size:11px;border:1px solid #6E716F;padding:6px 8px;letter-spacing:.08em;white-space:nowrap}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price .v{font-family:var(--display);font-size:48px;font-weight:500;letter-spacing:-.02em}
+.price .u{font-size:15px;color:var(--dark-muted)}
+.feats{display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.5;list-style:none;margin:0;padding:0}
+.feats li{display:flex;gap:12px;align-items:flex-start;border-top:1px solid #333634;padding-top:12px}
+.feats svg{flex:none;margin-top:4px}
+.timeline{display:flex;flex-direction:column}
+.tl{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid var(--line-soft)}
+.tl:first-of-type{border-top:none;padding-top:4px}
+.tl .k{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--brass)}
+.tl strong{display:block;font-size:17px;font-weight:600;margin-bottom:4px}
+.tl span{font-size:15px;line-height:1.5;color:var(--ink-2)}
+
+/* CICLOS + QUALIFICADO */
+.cycles{display:flex;flex-direction:column;border-top:1px solid #333634}
+.cycle{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;align-items:baseline;padding:18px 0;border-bottom:1px solid #333634}
+.cycle .n{font-family:var(--display);font-size:22px;font-weight:500;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cycle .n small{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--ink);background:var(--brass-light);padding:4px 7px;font-weight:400}
+.cycle .p{font-family:var(--display);font-size:30px;font-weight:500;letter-spacing:-.02em;text-align:right;white-space:nowrap}
+.cycle .d{font-size:14px;color:var(--dark-muted);line-height:1.5}
+.cycle .m{font-size:14px;color:var(--brass-light);text-align:right;white-space:nowrap}
+.cycles .fund{font-size:14px;color:var(--dark-muted);padding-top:14px;line-height:1.5}
+.cycles .fund strong{color:var(--brass-light);font-weight:500}
+.qual{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:28px}
+.qual>div{background:var(--surface);padding:28px;display:flex;flex-direction:column;gap:10px}
+.qual .n{font-family:var(--mono);font-size:12px;color:var(--brass)}
+.qual h3{font-size:21px}
+.qual p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.qual-rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.qual-rules div{border-top:1px solid var(--ink);padding-top:16px;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.qual-rules strong{display:block;color:var(--ink);font-weight:600;margin-bottom:4px}
+.st-pill.cont{border-color:var(--err);color:var(--err)}
+.st-pill.qual{background:var(--surface);border-color:var(--brass);color:var(--brass)}
+.ifrm select{border:1px solid var(--line);padding:0 14px;font-size:15px;background:var(--surface);width:100%;min-height:44px}
+
+/* CONTEÚDO PÓRTICO */
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.pack{background:var(--surface);border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;gap:20px;position:relative}
+.pack.star{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.pack .badge{position:absolute;top:-1px;right:24px;transform:translateY(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.1em;background:var(--ink);color:var(--ground);padding:6px 10px}
+.pack .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--brass)}
+.pack h3{font-size:26px;letter-spacing:-.01em}
+.pack .pv{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.pack .pv b{font-family:var(--display);font-size:38px;font-weight:500;letter-spacing:-.02em}
+.pack .pv span{font-size:14px;color:var(--muted)}
+.pack p.d{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.pack ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:1.5}
+.pack li{display:flex;gap:10px;align-items:flex-start;border-top:1px solid var(--line-soft);padding-top:10px}
+.pack li svg{flex:none;margin-top:4px}
+.pack .btn{margin-top:auto}
+.pack .rule{font-size:13px;color:var(--muted);margin:0}
+.packs-note{margin:28px 0 0;font-size:14px;color:var(--ink-2)}
+
+/* PAINEL */
+.panel-top{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center;padding-top:28px;padding-bottom:28px}
+.panel-top h1{font-size:clamp(26px,3vw,36px);letter-spacing:-.02em}
+.panel-top .sub{font-size:14px;color:var(--dark-muted);margin-top:6px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.08em;border:1px solid #4A4D4B;padding:6px 9px;color:var(--dark-text)}
+.chip.gold{border-color:var(--brass-light);color:var(--brass-light)}
+.panel{display:flex;flex-wrap:wrap;gap:40px;padding-top:40px;padding-bottom:96px;align-items:flex-start}
+nav.side{flex:1 1 220px;max-width:100%;display:flex;flex-direction:column;border-top:1px solid var(--ink)}
+nav.side button{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 4px;border-bottom:1px solid var(--line-soft);font-size:15px;min-height:24px}
+nav.side button:hover{color:var(--brass)}
+nav.side button[aria-current="true"]{font-weight:600}
+nav.side button .ct{font-family:var(--mono);font-size:11px;background:var(--ink);color:var(--ground);padding:3px 7px}
+nav.side button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.pane-wrap{flex:999 1 560px;min-width:0}
+.pane h2{font-size:clamp(28px,3vw,38px);margin-bottom:8px}
+.pane .intro{margin:0 0 32px;font-size:15px;color:var(--ink-2);line-height:1.55;max-width:640px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:28px}
+.kpi{background:var(--surface);padding:22px;display:flex;flex-direction:column;gap:8px}
+.kpi .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.kpi .v{font-family:var(--display);font-size:34px;font-weight:500;line-height:1}
+.kpi .s{font-size:13px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);padding:28px;margin-bottom:28px}
+.card h3{font-size:20px;margin-bottom:6px}
+.card .cs{font-size:14px;color:var(--muted);margin:0 0 20px}
+.prog{height:8px;background:var(--line-soft);position:relative;margin:14px 0 10px}
+.prog i{position:absolute;left:0;top:0;bottom:0;background:var(--ink)}
+.prog-l{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);gap:12px;flex-wrap:wrap}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.todo{display:flex;flex-direction:column}
+.todo div{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;border-top:1px solid var(--line-soft);font-size:15px}
+.todo div:first-child{border-top:none;padding-top:0}
+.todo small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.todo .btn{min-height:40px;font-size:14px;padding:0 14px;flex:none}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.filters button{border:1px solid var(--line);background:var(--surface);padding:0 14px;min-height:40px;font-size:14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.req{background:var(--surface);border:1px solid var(--line);padding:24px;margin-bottom:16px;display:flex;flex-direction:column;gap:16px}
+.req-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.req h3{font-size:19px;font-family:var(--body);font-weight:600}
+.req .when{font-size:13px;color:var(--muted)}
+.pills{display:flex;gap:6px;flex-wrap:wrap;align-items:flex-start}
+.st-pill{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:5px 8px;border:1px solid var(--line);white-space:nowrap}
+.st-pill.novo{background:var(--brass-light);border-color:var(--brass-light);color:var(--ink)}
+.st-pill.enviado{border-color:var(--ink)}
+.st-pill.liberado{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.st-pill.para{border-color:var(--brass);color:var(--brass)}
+.req-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;font-size:14px}
+.req-grid span{display:block}
+.req-grid .k{font-size:12px;color:var(--muted);margin-bottom:3px}
+.req .desc{font-size:15px;line-height:1.55;color:var(--ink-2);white-space:pre-line;margin:0}
+.req-acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-top:1px solid var(--line-soft);padding-top:16px}
+.req-acts .btn{min-height:42px;font-size:14px;padding:0 16px}
+.req-acts .info{font-size:14px;color:var(--ink-2);line-height:1.5}
+.req-acts .info strong{color:var(--ink)}
+.ifrm{display:flex;flex-direction:column;gap:10px;width:100%}
+.ifrm label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted)}
+.ifrm textarea,.ifrm input{border:1px solid var(--line);padding:12px 14px;font-size:15px;background:var(--surface);width:100%;min-height:44px}
+.ifrm textarea{min-height:96px;resize:vertical;line-height:1.5}
+.ifrm textarea:focus,.ifrm input:focus{outline:none;border-color:var(--ink)}
+.ifrm .row-b{display:flex;gap:10px;flex-wrap:wrap}
+.ifrm .err{margin:0;font-size:14px;color:var(--err);min-height:18px}
+.score-row{display:grid;grid-template-columns:minmax(0,1fr) 2fr 48px;gap:16px;align-items:center;padding:14px 0;border-top:1px solid var(--line-soft);font-size:15px}
+.score-row:first-child{border-top:none}
+.score-row .barl{height:6px;background:var(--line-soft);position:relative}
+.score-row .barl i{position:absolute;left:0;top:0;bottom:0;background:var(--ink)}
+.score-row b{font-family:var(--display);font-weight:500;text-align:right}
+.checklist{display:flex;flex-direction:column}
+.checklist div{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line-soft);font-size:15px}
+.checklist div:first-child{border-top:none}
+.checklist .box{width:18px;height:18px;border:1px solid var(--ink);flex:none;display:flex;align-items:center;justify-content:center}
+.checklist .box.on{background:var(--ink)}
+.form.light.compact{padding:0;flex:none}
+
+footer .wrap{padding-top:40px;padding-bottom:40px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center;font-size:14px;color:var(--muted)}
+footer .links{display:flex;flex-wrap:wrap;gap:28px}
+footer a:hover{color:var(--brass)}
+
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  section.block,.block{padding-top:80px;padding-bottom:80px}
+  .hero{padding-top:56px;padding-bottom:72px;gap:40px}
+  .hero-photo{height:280px}
+  .stat .v{font-size:24px}
+  .profile-side,.profile-main,.plan,.compare>div,.path{padding:24px}
+  .tl{grid-template-columns:1fr;gap:6px}
+  .int{padding:20px}
+  .int .int-side{align-items:flex-start;text-align:left}
+}
+@media (max-width:1000px){.cats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+
+<div class="demo-bar" id="demoBar" hidden>Modo demonstração: os dados ficam salvos só neste navegador. Configure o Firebase para usar de verdade.</div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#/" class="logo" aria-label="Pórtico Obra, início">
+      <svg class="logo-mark" width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 9 H56" stroke="currentColor" stroke-width="1.5"/><rect x="5" y="13" width="54" height="8" fill="currentColor"/><rect x="13" y="21" width="5" height="34" fill="currentColor"/><rect x="46" y="21" width="5" height="34" fill="currentColor"/><path d="M5 57 H59" stroke="#C9A877" stroke-width="2.5"/></svg>
+      <span class="logo-word"><span>PÓRTICO</span><span class="logo-sub">OBRA</span></span><small id="proTag" hidden>PROFISSIONAIS</small>
+    </a>
+    <nav class="nav-links" id="navB2C" aria-label="Principal">
+      <a href="#como">Como funciona</a>
+      <a href="#curadoria">Profissionais</a>
+      <a href="#indice">Avaliação</a>
+      <a href="#guia">Guia da obra</a>
+    </nav>
+    <nav class="nav-links" id="navB2B" aria-label="Área do profissional" hidden>
+      <a href="#por-que">Por que a Pórtico</a>
+      <a href="#cadeiras">Cadeiras</a>
+      <a href="#entrada">Como se entra</a>
+      <a href="#plano">Plano</a>
+      <a href="#conteudo">Conteúdo</a>
+    </nav>
+    <div class="nav-cta" id="ctaB2C">
+      <a href="#/profissionais" class="btn btn-line hide-sm">Sou profissional</a>
+      <a href="#indicacao" class="btn btn-solid">Receber propostas</a>
+    </div>
+    <div class="nav-cta" id="ctaB2B" hidden>
+      <a href="#/" class="btn btn-line hide-sm">Site para clientes</a>
+      <button type="button" class="btn btn-line" id="logout" hidden>Sair</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ B2C ============================ -->
+<main id="viewB2C">
+
+<section class="wrap hero">
+  <div class="hero-copy">
+    <div>
+      <p class="eyebrow">Para quem vai construir ou reformar</p>
+      <h1>Sua obra com quem tem histórico para mostrar.</h1>
+      <p class="lead">Arquitetos, engenheiros e fornecedores selecionados a dedo e avaliados obra a obra por quem já contratou. Escolha direto na curadoria ou descreva a obra e receba propostas.</p>
+    </div>
+    <div class="hero-actions">
+      <a href="#curadoria" class="btn btn-solid">Ver os profissionais</a>
+      <a href="#indicacao" class="btn btn-line">Receber propostas</a>
+      <span class="free">Gratuito para você</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hatch hero-photo"><span class="ph">[FOTOGRAFIA DE OBRA ENTREGUE]</span></div>
+    <div class="hero-stats">
+      <div class="stat"><span class="k">ÍNDICE</span><span class="v">9,4</span></div>
+      <div class="stat"><span class="k">DESVIO DE PRAZO</span><span class="v">+4%</span></div>
+      <div class="stat"><span class="k">DESVIO DE ORÇAMENTO</span><span class="v">+2%</span></div>
+    </div>
+    <p class="note">Perfil ilustrativo · média de 14 obras verificadas</p>
+  </div>
+</section>
+
+<section class="white pillars">
+  <div class="wrap">
+    <div class="pillar"><span class="n">01</span><h3>Poucos, por escolha</h3><p>Cada profissional é selecionado a dedo. Você não precisa garimpar entre centenas de perfis.</p></div>
+    <div class="pillar"><span class="n">02</span><h3>Histórico real</h3><p>Cada avaliação vem de uma obra confirmada, com prazo e orçamento reais, não só uma nota.</p></div>
+    <div class="pillar"><span class="n">03</span><h3>Contato só de quem foi selecionado</h3><p>O seu telefone vai apenas para profissionais da curadoria interessados na sua obra. Nada de lista vendida ou ligação de quem você não conhece.</p></div>
+  </div>
+</section>
+
+<section id="como" class="wrap block">
+  <div class="head">
+    <div class="t">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Dois jeitos de encontrar quem vai fazer a sua obra.</h2>
+    </div>
+  </div>
+  <div class="paths">
+    <div class="path">
+      <div><span class="k">CAMINHO 1</span><h3>Já sei quem eu quero</h3></div>
+      <ol>
+        <li><b>1</b><span><strong>Escolha na curadoria.</strong> Compare histórico de prazo, orçamento e notas de cada obra.</span></li>
+        <li><b>2</b><span><strong>Peça uma proposta.</strong> Descreva a obra em dois minutos, direto no perfil dele.</span></li>
+        <li><b>3</b><span><strong>Ele chama você.</strong> O profissional que você escolheu recebe o pedido e o seu contato na hora e fala com você em até 48h. Nenhum outro recebe.</span></li>
+      </ol>
+      <a href="#curadoria" class="btn btn-solid">Ver a curadoria</a>
+    </div>
+    <div class="path alt">
+      <div><span class="k">CAMINHO 2</span><h3>Quero receber propostas</h3></div>
+      <ol>
+        <li><b>1</b><span><strong>Descreva a obra.</strong> Tipo, bairro, prazo e faixa de investimento.</span></li>
+        <li><b>2</b><span><strong>A obra chega aos profissionais.</strong> Os profissionais da categoria veem a descrição da obra, ainda sem o seu nome e telefone.</span></li>
+        <li><b>3</b><span><strong>Quem se interessar responde em até 48h,</strong> com uma mensagem e uma faixa de orçamento, que você vê pelo link do pedido.</span></li>
+        <li><b>4</b><span><strong>Eles chamam você.</strong> Quem se interessar recebe o seu contato e fala com você pelo WhatsApp.</span></li>
+      </ol>
+      <a href="#indicacao" class="btn btn-brass">Descrever minha obra</a>
+    </div>
+  </div>
+  <p class="privacy">
+    <svg width="18" height="22" viewBox="0 0 18 22" aria-hidden="true"><rect x="1" y="9" width="16" height="12" fill="none" stroke="#8A6A3B" stroke-width="1.4"/><path d="M4.5 9 V6 a4.5 4.5 0 0 1 9 0 V9" fill="none" stroke="#8A6A3B" stroke-width="1.4"/></svg>
+    Nos dois caminhos, o seu telefone vai só para profissionais da curadoria: o escolhido, ou os da categoria que se interessarem pela sua obra.
+  </p>
+</section>
+
+<section id="curadoria" class="white">
+  <div class="wrap block">
+    <div class="head">
+      <div class="t">
+        <p class="eyebrow">A curadoria</p>
+        <h2>Selecionados a dedo, categoria por categoria.</h2>
+      </div>
+      <p class="side" id="curNote">Só entra quem passa pela verificação de empresa, registro e obras entregues.</p>
+    </div>
+    <div class="cats" id="cats" role="group" aria-label="Categorias"></div>
+    <div id="pros"></div>
+  </div>
+</section>
+
+<section id="indice" class="dark">
+  <div class="wrap block indice">
+    <div class="indice-copy">
+      <p class="eyebrow">Índice Pórtico</p>
+      <h2>Uma nota que se mede com régua.</h2>
+      <p>Seis critérios, avaliados em cada marco da obra por quem contratou. Seis meses depois da entrega, uma última avaliação confirma se o acabamento resistiu ao uso.</p>
+      <p class="small">Quem cai abaixo de 8,0 por dois ciclos deixa a curadoria. Por isso a lista se mantém boa.</p>
+    </div>
+    <div class="criteria" id="criteria"></div>
+  </div>
+</section>
+
+<section id="perfil" class="wrap block">
+  <div class="head">
+    <div class="t">
+      <p class="eyebrow">O perfil</p>
+      <h2>Antes de contratar, veja como foram as últimas obras.</h2>
+    </div>
+  </div>
+  <div class="profile">
+    <div class="profile-side">
+      <div class="profile-id">
+        <div class="hatch avatar" aria-hidden="true"></div>
+        <div><span class="n">Atelier Vão Livre</span><span class="m">Arquitetura residencial · CAU verificado</span></div>
+      </div>
+      <div class="facts">
+        <div><span>Na Pórtico desde</span><span>2027</span></div>
+        <div><span>Obras verificadas</span><span>14</span></div>
+        <div><span>Ticket mínimo</span><span>R$ 150 mil</span></div>
+        <div><span>Agenda</span><span>Próxima vaga em [mês]</span></div>
+        <div><span>Documentação</span><span>CNPJ, certidões, registro profissional</span></div>
+      </div>
+      <a href="#curadoria" class="btn btn-solid">Ver profissionais</a>
+      <p class="note" style="margin:0">Perfil ilustrativo</p>
+    </div>
+    <div class="profile-main">
+      <div class="table-box">
+        <table class="table">
+          <thead><tr><th>OBRA</th><th>PRAZO</th><th>ORÇAMENTO</th><th>NOTA</th></tr></thead>
+          <tbody id="history"></tbody>
+        </table>
+      </div>
+      <p>Cada linha corresponde a uma obra confirmada pelo cliente. Comentários ficam visíveis ao lado da nota de cada obra.</p>
+    </div>
+  </div>
+</section>
+
+<section id="guia" class="white">
+  <div class="wrap block">
+    <div class="head">
+      <div class="t">
+        <p class="eyebrow">Guia da obra</p>
+        <h2>O que vale saber antes de começar.</h2>
+      </div>
+      <p class="side">Conteúdo curto e prático para você conduzir a obra com segurança, com ou sem a Pórtico.</p>
+    </div>
+    <div class="guides" id="guides"></div>
+  </div>
+</section>
+
+<section class="wrap block" id="faq">
+  <div class="head">
+    <div class="t">
+      <p class="eyebrow">Dúvidas</p>
+      <h2>Perguntas de quem vai contratar.</h2>
+    </div>
+  </div>
+  <div class="faq" id="faqB2C"></div>
+</section>
+
+<section id="indicacao" class="dark">
+  <div class="wrap cta">
+    <div class="ct">
+      <p class="eyebrow">Caminho 2 · Receber propostas</p>
+      <h2>Descreva a sua obra. Quem tiver interesse responde.</h2>
+      <ul>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7 L5.5 11 L13 2" fill="none" stroke="#C9A877" stroke-width="1.4"/></svg>O seu contato vai só para profissionais selecionados e interessados na sua obra.</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7 L5.5 11 L13 2" fill="none" stroke="#C9A877" stroke-width="1.4"/></svg>Respostas em até 48 horas, num link só seu.</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7 L5.5 11 L13 2" fill="none" stroke="#C9A877" stroke-width="1.4"/></svg>Você escolhe quem pode te chamar no WhatsApp.</li>
+      </ul>
+    </div>
+    <form class="form" id="formAberto" novalidate></form>
+  </div>
+</section>
+
+<section class="white">
+  <div class="wrap pro-band">
+    <div>
+      <h3>É arquiteto, engenheiro ou fornecedor de obra?</h3>
+      <p>A área de profissionais é exclusiva para empresas com CNPJ ativo.</p>
+    </div>
+    <a href="#/profissionais" class="btn btn-solid">Acessar com CNPJ</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ PEDIDO (cliente) ============================ -->
+<main id="viewPedido" hidden>
+  <div class="wrap block" id="pedidoBox"></div>
+</main>
+
+<!-- ============================ GATE ============================ -->
+<main id="viewGate" hidden>
+  <div class="gate">
+    <div class="gate-l dark">
+      <div>
+        <p class="eyebrow">Área do profissional</p>
+        <h1>Uma cadeira, não um anúncio.</h1>
+        <p class="lead">100 cadeiras no lançamento, para empresas que entregam no prazo e no orçamento.</p>
+      </div>
+      <ul>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7 L5.5 11 L13 2" fill="none" stroke="#C9A877" stroke-width="1.4"/></svg>Pedidos com escopo, prazo e investimento definidos</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7 L5.5 11 L13 2" fill="none" stroke="#C9A877" stroke-width="1.4"/></svg>Nenhuma taxa sobre os negócios fechados</li>
+        <li><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7 L5.5 11 L13 2" fill="none" stroke="#C9A877" stroke-width="1.4"/></svg>Cadeiras fundadoras com período sem custo</li>
+      </ul>
+    </div>
+    <div class="gate-r">
+      <form class="gate-box" id="gateForm" novalidate>
+        <h2 id="gateTitle">Acesse com o CNPJ da sua empresa</h2>
+        <p id="gateSub">Use o CNPJ e a senha cadastrados.</p>
+        <label for="cnpj">CNPJ</label>
+        <input id="cnpj" inputmode="numeric" autocomplete="username" placeholder="00.000.000/0000-00" maxlength="18">
+        <div class="grp" id="signupFields" hidden>
+          <label for="g-nome">Seu nome</label>
+          <input id="g-nome" autocomplete="name" placeholder="Nome e sobrenome">
+          <label for="g-cat">Categoria</label>
+          <select id="g-cat"></select>
+          <label for="g-whats">WhatsApp</label>
+          <input id="g-whats" type="tel" autocomplete="tel" placeholder="(11) 90000-0000">
+        </div>
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" autocomplete="current-password" placeholder="Mínimo de 6 caracteres">
+        <div class="grp" id="senha2Wrap" hidden>
+          <label for="senha2">Confirme a senha</label>
+          <input id="senha2" type="password" autocomplete="new-password">
+        </div>
+        <p class="gate-msg" id="gateMsg" role="status"></p>
+        <button type="submit" class="btn btn-solid" id="gateBtn">Entrar</button>
+        <button type="button" class="text-btn" id="toggleMode">Primeiro acesso? Cadastre a sua empresa</button>
+        <button type="button" class="text-btn" id="demoBtn" hidden>Ver o painel de um membro (demonstração)</button>
+        <p class="fine">No cadastro, consultamos a situação do CNPJ na Receita Federal. Só empresas ativas acessam. Esqueceu a senha? Fale com a Pórtico.</p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<!-- ============================ B2B · CANDIDATO ============================ -->
+<main id="viewB2B" hidden>
+
+<div class="dark">
+  <div class="wrap welcome">
+    <span>Olá, <strong id="coName">[empresa]</strong> · CNPJ <span id="coCnpj"></span></span>
+    <span class="flag">CANDIDATURA EM ANÁLISE</span>
+  </div>
+  <section class="wrap hero" style="padding-top:72px">
+    <div class="hero-copy">
+      <div>
+        <p class="eyebrow">Lançamento · 100 cadeiras</p>
+        <h1 style="color:var(--dark-text)">Os clientes certos chegam até você.</h1>
+        <p class="lead">A Pórtico abre 100 cadeiras no lançamento, divididas entre dez categorias. Novas vagas só abrem quando a demanda justifica. Os pedidos chegam com escopo, bairro, prazo e investimento, e você responde só aos que fazem sentido.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#candidatura" class="btn btn-brass">Completar candidatura</a>
+        <a href="#plano" class="btn btn-line" style="border-color:#6E716F;color:var(--dark-text)">Ver condições</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="steps" style="border-color:var(--dark-text)">
+        <div class="step"><span class="n">100</span><h3>cadeiras no lançamento</h3><p>Novas vagas só abrem quando a demanda justifica.</p></div>
+        <div class="step"><span class="n">0%</span><h3>de taxa por negócio</h3><p>O contrato é seu, do começo ao fim.</p></div>
+        <div class="step"><span class="n">48h</span><h3>para responder</h3><p>Você escolhe a quais pedidos responder.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section id="por-que" class="wrap block">
+  <div class="head"><div class="t"><p class="eyebrow">Por que a Pórtico</p><h2>Feita para quem já é bom no que faz.</h2></div></div>
+  <div class="compare">
+    <div class="them"><p class="eyebrow">Marketplaces de orçamento</p><h3>Volume</h3><ul id="them"></ul></div>
+    <div class="us"><p class="eyebrow">Pórtico</p><h3>Curadoria</h3><ul id="us"></ul></div>
+  </div>
+</section>
+
+<section id="cadeiras" class="white">
+  <div class="wrap block">
+    <div class="head">
+      <div class="t"><p class="eyebrow">Cadeiras · Lançamento</p><h2>Onde ainda há lugar.</h2></div>
+      <p class="side">São 100 cadeiras no lançamento. As três primeiras de cada categoria são fundadoras e têm condições especiais. Novas vagas só abrem quando houver pedidos para todos.</p>
+    </div>
+    <div class="seats-table" id="seats"></div>
+  </div>
+</section>
+
+<section id="entrada" class="wrap block">
+  <div class="head"><div class="t"><p class="eyebrow">Como se entra</p><h2>Uma cadeira se conquista. E se mantém.</h2></div></div>
+  <div class="steps" id="steps"></div>
+</section>
+
+<section class="dark">
+  <div class="wrap block indice">
+    <div class="indice-copy">
+      <p class="eyebrow">Como você é avaliado</p>
+      <h2>O Índice Pórtico, por dentro.</h2>
+      <p>Você começa com a nota dos três clientes que avaliaram a sua entrada. Depois, cada obra que chega pela Pórtico é avaliada pelo cliente ao final e substitui uma dessas notas. A média ponderada dos últimos doze meses forma o seu Índice.</p>
+      <p class="small">Obras fechadas fora da Pórtico também podem entrar, com metade do peso e até duas por trimestre, se o seu cliente responder à mesma avaliação.</p>
+      <p class="small">Abaixo de 8,0 por dois ciclos trimestrais, a cadeira volta para a fila. Você recebe o detalhamento e pode contestar qualquer avaliação.</p>
+    </div>
+    <div class="criteria" id="criteriaB2B"></div>
+  </div>
+</section>
+
+<section id="plano" class="wrap block">
+  <div class="head"><div class="t"><p class="eyebrow">Plano</p><h2>Um valor para todas as categorias. Nenhuma taxa.</h2></div></div>
+  <div class="plan-wrap">
+    <div class="plan main">
+      <div class="plan-top">
+        <div><p class="eyebrow">Profissional</p><h3>Cadeira Pórtico</h3></div>
+        <span class="tag">100 NO LANÇAMENTO</span>
+      </div>
+      <div class="cycles" id="cycles"></div>
+      <ul class="feats" id="seatFeats"></ul>
+      <a href="#candidatura" class="btn btn-light">Completar candidatura</a>
+    </div>
+    <div class="plan side">
+      <div><p class="eyebrow brass">Cadeiras fundadoras</p><h3>Você só paga quando der resultado.</h3></div>
+      <div class="timeline">
+        <div class="tl"><span class="k">ENTRADA</span><div><strong>Sem custo</strong><span>Perfil publicado, selo Pórtico e pedidos liberados.</span></div></div>
+        <div class="tl"><span class="k">ATÉ 90 DIAS</span><div><strong>Período fundador</strong><span>Gratuito até completar 90 dias ou receber 3 pedidos qualificados, o que vier primeiro.</span></div></div>
+        <div class="tl"><span class="k">DEPOIS</span><div><strong>30% de desconto travado</strong><span>Trimestral por R$ 735 ou anual por R$ 2.730, enquanto a cadeira for sua.</span></div></div>
+      </div>
+      <p class="note" style="margin:0">Se em 90 dias chegarem menos de 3 pedidos qualificados, você escolhe: sair sem pagar nada ou começar o plano.</p>
+    </div>
+  </div>
+</section>
+
+<section id="qualificado" class="white">
+  <div class="wrap block">
+    <div class="head">
+      <div class="t"><p class="eyebrow">Pedido qualificado</p><h2>O que conta como pedido para você.</h2></div>
+      <p class="side">Um pedido entra na sua contagem quando cumpre as quatro condições abaixo. As mesmas regras valem para todos.</p>
+    </div>
+    <div class="qual" id="qualGrid"></div>
+    <div class="qual-rules" id="qualRules"></div>
+  </div>
+</section>
+
+<section id="conteudo" class="white">
+  <div class="wrap block">
+    <div class="head">
+      <div class="t"><p class="eyebrow">Conteúdo Pórtico</p><h2>Sua obra contada do jeito que ela merece.</h2></div>
+      <p class="side">Produção feita pela Pórtico e publicada em collab com o seu perfil.</p>
+    </div>
+    <div class="packs" id="packsPublic"></div>
+    <p class="packs-note">Cadeiras com plano anual incluem um post no feed por trimestre.</p>
+  </div>
+</section>
+
+<section id="faq-pro" class="wrap block">
+  <div class="head"><div class="t"><p class="eyebrow">Dúvidas</p><h2>Perguntas de profissionais.</h2></div></div>
+  <div class="faq" id="faqB2B"></div>
+</section>
+
+<section id="candidatura" class="dark">
+  <div class="wrap cta">
+    <div class="ct">
+      <h2>Complete a sua candidatura.</h2>
+      <p class="lead">Com o portfólio em mãos, entramos em contato pelo WhatsApp para a verificação: registro profissional, certidões e três obras recentes.</p>
+    </div>
+    <form class="form" id="formCand" novalidate>
+      <div class="row">
+        <div><label for="p-cnpj">CNPJ</label><input id="p-cnpj" readonly></div>
+        <div><label for="p-cat">Categoria</label><input id="p-cat" readonly></div>
+      </div>
+      <label for="p-port">Portfólio ou Instagram</label>
+      <input id="p-port" placeholder="@seuescritorio ou site">
+      <label for="p-whats">WhatsApp</label>
+      <input id="p-whats" type="tel" placeholder="(11) 90000-0000">
+      <label for="p-apres">Conte em poucas linhas o tipo de obra que você faz</label>
+      <textarea id="p-apres" maxlength="600" placeholder="Reformas residenciais de alto padrão em Pinheiros e região..."></textarea>
+      <p class="err" id="candErr" role="alert"></p>
+      <button type="submit" class="btn btn-brass">Salvar candidatura</button>
+      <p class="ok" id="candOk" role="status">Candidatura salva. Em breve falamos com você.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ PAINEL DO MEMBRO ============================ -->
+<main id="viewPanel" hidden>
+  <div class="dark">
+    <div class="wrap panel-top">
+      <div>
+        <h1 id="pnName">[empresa]</h1>
+        <span class="sub" id="pnSub"></span>
+      </div>
+      <div class="chips" id="pnChips"></div>
+    </div>
+  </div>
+
+  <div class="wrap panel">
+    <nav class="side" aria-label="Painel" id="side">
+      <button type="button" data-pane="geral" aria-current="true">Visão geral</button>
+      <button type="button" data-pane="pedidos">Pedidos <span class="ct" id="ctNovos" hidden>0</span></button>
+      <button type="button" data-pane="indice">Meu índice</button>
+      <button type="button" data-pane="perfil">Perfil público</button>
+      <button type="button" data-pane="conteudo">Conteúdo Pórtico</button>
+      <button type="button" data-pane="plano">Plano</button>
+    </nav>
+
+    <div class="pane-wrap">
+      <section class="pane" data-pane="geral">
+        <h2>Bom ver você por aqui.</h2>
+        <p class="intro">O que aconteceu na sua cadeira.</p>
+        <div class="kpis" id="kpis"></div>
+        <div class="card" id="trialCard">
+          <h3>Período fundador</h3>
+          <p class="cs">Gratuito até completar 90 dias ou receber 3 pedidos qualificados, o que vier primeiro. Depois, 30% de desconto travado.</p>
+          <div class="prog" aria-hidden="true"><i id="trialBar"></i></div>
+          <div class="prog-l"><span id="trialPed"></span><span id="trialDays"></span></div>
+        </div>
+        <div class="card">
+          <h3>Pendências</h3>
+          <p class="cs">O que precisa da sua atenção.</p>
+          <div class="todo" id="todo"></div>
+        </div>
+      </section>
+
+      <section class="pane" data-pane="pedidos" hidden>
+        <h2>Pedidos</h2>
+        <p class="intro">Você vê a obra, não o cliente. Se fizer sentido, demonstre interesse em até 48h. O contato aparece aqui quando o cliente escolher você.</p>
+        <div class="filters" id="reqFilters"></div>
+        <div id="reqList"></div>
+      </section>
+
+      <section class="pane" data-pane="indice" hidden>
+        <h2 id="idxTitle">Meu índice</h2>
+        <p class="intro">Média ponderada dos últimos 12 meses. O mínimo para manter a cadeira é 8,0.</p>
+        <div class="card"><h3>Por critério</h3><p class="cs">Peso entre parênteses.</p><div id="myScores"></div></div>
+      </section>
+
+      <section class="pane" data-pane="perfil" hidden>
+        <h2>Perfil público</h2>
+        <p class="intro">É assim que quem vai contratar vê a sua empresa. O ticket mínimo também filtra os pedidos abertos que chegam até você.</p>
+        <div class="two">
+          <div id="myCard"></div>
+          <div class="card" style="margin-bottom:0">
+            <h3 id="ckTitle">Completar perfil</h3>
+            <p class="cs">Perfis completos recebem mais respostas dos clientes.</p>
+            <div class="checklist" id="checklist"></div>
+          </div>
+        </div>
+        <div class="card" style="margin-top:28px">
+          <h3>Editar perfil</h3>
+          <p class="cs">Status, categoria, cadeira e Índice são definidos pela Pórtico.</p>
+          <form class="form light compact" id="formPerfil" novalidate>
+            <label for="e-desc">Descrição curta</label>
+            <input id="e-desc" maxlength="80" placeholder="Residencial · Pinheiros">
+            <div class="row">
+              <div><label for="e-reg">Regiões que atende</label><input id="e-reg" placeholder="Zona Oeste, Centro"></div>
+              <div><label for="e-tick">Ticket mínimo</label><select id="e-tick"></select></div>
+            </div>
+            <div class="row">
+              <div><label for="e-port">Portfólio ou Instagram</label><input id="e-port"></div>
+              <div><label for="e-whats">WhatsApp comercial</label><input id="e-whats" type="tel"></div>
+            </div>
+            <p class="err" id="perfErr" role="alert"></p>
+            <button type="submit" class="btn btn-solid" style="align-self:flex-start;min-height:48px">Salvar perfil</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="pane" data-pane="conteudo" hidden>
+        <h2>Conteúdo Pórtico</h2>
+        <p class="intro">Produção feita pela Pórtico e publicada em collab com o seu perfil. Seu plano anual inclui um post no feed por trimestre.</p>
+        <div class="packs" id="packsPanel"></div>
+      </section>
+
+      <section class="pane" data-pane="plano" hidden>
+        <h2>Plano</h2>
+        <p class="intro">Sem taxa sobre contratos. Você paga apenas a cadeira.</p>
+        <div class="card"><div class="facts" id="planFacts"></div></div>
+        <button type="button" class="btn btn-line" id="talkBtn">Falar com a Pórtico</button>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- ============================ MODAL · CAMINHO 1 ============================ -->
+<dialog class="modal" id="modalDireto" aria-labelledby="mdTitle">
+  <div class="modal-head">
+    <div>
+      <p class="eyebrow">Pedido de proposta</p>
+      <h2 id="mdTitle">[profissional]</h2>
+      <p>O pedido e o seu contato vão só para este profissional.</p>
+    </div>
+    <button type="button" class="modal-x" id="mdClose" aria-label="Fechar">×</button>
+  </div>
+  <form class="form light" id="formDireto" novalidate></form>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <span class="logo" style="font-size:16px"><svg class="logo-mark" width="24" height="24" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 9 H56" stroke="currentColor" stroke-width="1.5"/><rect x="5" y="13" width="54" height="8" fill="currentColor"/><rect x="13" y="21" width="5" height="34" fill="currentColor"/><rect x="46" y="21" width="5" height="34" fill="currentColor"/><path d="M5 57 H59" stroke="#C9A877" stroke-width="2.5"/></svg><span class="logo-word"><span>PÓRTICO</span><span class="logo-sub">OBRA</span></span></span>
+    <div class="links">
+      <a href="#/">Para quem vai contratar</a>
+      <a href="#/profissionais">Área do profissional</a>
+      <a href="#termos">Termos e privacidade</a>
+    </div>
+    <span>Curadoria de profissionais de obra</span>
+  </div>
+</footer>
+
+<script type="module">
+/* =====================================================================
+   CONFIGURAÇÃO
+   1) Firebase Console → criar projeto (plano Spark).
+   2) Authentication → ativar "Anônimo" e "E-mail/senha".
+   3) Firestore → criar banco → colar firestore.rules → Publicar.
+   4) Colar a config do app web abaixo.
+   5) Para ser admin: Authentication → copie o seu uid →
+      Firestore → coleção "admins" → documento com esse id.
+   Sem config, a página roda em modo demonstração (dados no navegador).
+   ===================================================================== */
+const FIREBASE_CONFIG = {
+  apiKey: "COLE_AQUI",
+  authDomain: "COLE_AQUI",
+  projectId: "COLE_AQUI",
+  appId: "COLE_AQUI"
+};
+const WHATS_PORTICO = '5511900000000';      // número da Pórtico
+const LOGIN_SUFFIX = '@acesso.porticoobra.com.br'; // CNPJ vira o "e-mail" de login
+const PRAZO_H = 48;
+// Planos (valor único para todas as categorias)
+const PLANOS = {
+  referencia: 390,
+  trimestral: { total: 1050, mes: 350, fundador: 735 },
+  anual:      { total: 3900, mes: 325, fundador: 2730 },
+  descontoFundador: 0.30,
+  trialDias: 90, trialPedidos: 3
+};
+const brl = (n) => 'R$ ' + Number(n).toLocaleString('pt-BR');
+const CONFIGURED = !FIREBASE_CONFIG.projectId.startsWith('COLE');
+
+/* ===================== CONSTANTES ===================== */
+const CATS = [
+  { id:'arq', name:'Arquitetura', vagas:20 }, { id:'int', name:'Interiores', vagas:15 },
+  { id:'eng', name:'Engenharia e gestão de obra', vagas:15 }, { id:'mar', name:'Marcenaria', vagas:15 },
+  { id:'mrm', name:'Marmoraria', vagas:8 }, { id:'ges', name:'Gesso e pintura', vagas:8 },
+  { id:'ele', name:'Elétrica e automação', vagas:7 }, { id:'vid', name:'Vidraçaria e serralheria', vagas:5 },
+  { id:'pai', name:'Paisagismo', vagas:4 }, { id:'ilu', name:'Iluminação', vagas:3 }
+];
+const CADEIRAS_TOTAL = CATS.reduce((a, c) => a + c.vagas, 0); // 100 no lançamento
+const FUNDADORAS_POR_CAT = 3;
+const catName = (id) => (CATS.find(c => c.id === id) || {}).name || id;
+const TIPOS = ['Reforma completa','Reforma parcial','Construção','Projeto de interiores','Marcenaria sob medida','Outro'];
+const IMOVEIS = ['Apartamento','Casa','Comercial'];
+const QUANDO = ['Próximos 3 meses','3 a 6 meses','6 a 12 meses','Sem data definida'];
+const FAIXAS = ['Até R$ 50 mil','R$ 50 a 150 mil','R$ 150 a 400 mil','Acima de R$ 400 mil','Ainda não sei'];
+const TICKETS = ['Sem mínimo','A partir de R$ 50 mil','A partir de R$ 150 mil','A partir de R$ 400 mil'];
+
+/* ===================== HELPERS ===================== */
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const digits = (s) => String(s || '').replace(/\D/g, '');
+const check = (c) => `<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7 L5.5 11 L13 2" fill="none" stroke="${c}" stroke-width="1.4"/></svg>`;
+const cross = `<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2 L12 12 M12 2 L2 12" fill="none" stroke="#9B9893" stroke-width="1.4"/></svg>`;
+const arrow = '<svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5 H16 M12 1 L16 5 L12 9" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>';
+const fmtNota = (n) => (n == null || n === '') ? '—' : Number(n).toFixed(1).replace('.', ',');
+const fmtWhats = (d) => { d = digits(d); return d.length >= 10 ? `(${d.slice(0,2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}` : d; };
+const fmtCnpj = (d) => digits(d).slice(0,14).replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3').replace(/\.(\d{3})(\d)/,'.$1/$2').replace(/(\d{4})(\d)/,'$1-$2');
+const fmtWhen = (ms) => {
+  const d = new Date(ms);
+  return d.toLocaleDateString('pt-BR', { weekday:'short', day:'2-digit', month:'2-digit' }) + ' às ' + d.toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
+};
+const ago = (ms) => {
+  const m = Math.round((Date.now() - ms) / 60000);
+  if (m < 60) return `há ${Math.max(1, m)} min`;
+  const h = Math.round(m / 60); if (h < 24) return `há ${h} h`;
+  const d = Math.round(h / 24); return `há ${d} dia${d > 1 ? 's' : ''}`;
+};
+// o prazo de 48h começa quando o pedido é enviado (verificadoEm = criadoEm; o admin pode suspender um pedido falso)
+const deliveredMs = (p) => p.verificadoMs || p.criadoMs;
+const deadline = (p) => deliveredMs(p) + PRAZO_H * 3600e3;
+const expired = (p) => Date.now() > deadline(p);
+const waLink = (num, text) => `https://wa.me/55${digits(num).replace(/^55/, '')}${text ? '?text=' + encodeURIComponent(text) : ''}`;
+const ls = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(_) { return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(_) {} }
+};
+function validCnpj(d){
+  if (d.length !== 14 || /^(\d)\1+$/.test(d)) return false;
+  const calc = (len) => { let sum = 0, pos = len - 7;
+    for (let i = len; i >= 1; i--){ sum += d[len - i] * pos--; if (pos < 2) pos = 9; }
+    const r = sum % 11; return r < 2 ? 0 : 11 - r; };
+  return calc(12) === +d[12] && calc(13) === +d[13];
+}
+
+/* =====================================================================
+   CAMADA DE DADOS · Firebase (produção)
+   Segue exatamente as regras em firestore.rules.
+   ===================================================================== */
+async function firebaseStore(){
+  const base = 'https://www.gstatic.com/firebasejs/10.12.2/';
+  const [{ initializeApp }, A, F] = await Promise.all([
+    import(base + 'firebase-app.js'), import(base + 'firebase-auth.js'), import(base + 'firebase-firestore.js')
+  ]);
+  const app = initializeApp(FIREBASE_CONFIG);
+  const auth = A.getAuth(app), db = F.getFirestore(app);
+  await new Promise(r => { const u = A.onAuthStateChanged(auth, () => { u(); r(); }); });
+  const D = (...p) => F.doc(db, ...p);
+  const ms = (v) => v && v.toMillis ? v.toMillis() : (typeof v === 'number' ? v : Date.now());
+  let proCache = null;
+
+  return {
+    mode: 'firebase',
+    async listPros(){
+      const s = await F.getDocs(F.query(F.collection(db, 'profissionais'), F.where('status', '==', 'ativo')));
+      return s.docs.map(d => ({ id: d.id, ...d.data() }));
+    },
+    async createPedido(p, contato){
+      if (!auth.currentUser) await A.signInAnonymously(auth);
+      const uid = auth.currentUser.uid;
+      const ref = F.doc(F.collection(db, 'pedidos'));
+      const b = F.writeBatch(db);
+      b.set(ref, { ...p, clienteUid: uid, status: 'aberto', criadoEm: F.serverTimestamp(), verificado: true, verificadoEm: F.serverTimestamp(),
+                   liberados: p.destinatario ? [p.destinatario] : [] });
+      b.set(D('pedidos', ref.id, 'privado', 'contato'), { ...contato, consentimento: true });
+      await b.commit();
+      return ref.id;
+    },
+    async getPedido(id){
+      const s = await F.getDoc(D('pedidos', id));
+      if (!s.exists()) return null;
+      const d = s.data();
+      return { id, ...d, criadoMs: ms(d.criadoEm), verificadoMs: d.verificadoEm ? ms(d.verificadoEm) : null,
+               isOwner: !!auth.currentUser && d.clienteUid === auth.currentUser.uid };
+    },
+    async listInteresses(id){
+      const s = await F.getDocs(F.collection(db, 'pedidos', id, 'interesses'));
+      return Promise.all(s.docs.map(async d => {
+        const i = { proId: d.id, ...d.data(), criadoMs: ms(d.data().criadoEm) };
+        try { const p = await F.getDoc(D('profissionais', d.id)); if (p.exists()) i.pro = p.data(); } catch(_){}
+        return i;
+      }));
+    },
+    async getProPublic(id){ try { const s = await F.getDoc(D('profissionais', id)); return s.exists() ? s.data() : null; } catch(_){ return null; } },
+    async encerrar(id){ await F.updateDoc(D('pedidos', id), { status: 'encerrado' }); },
+
+    async proSignIn(cnpj, senha){ await A.signInWithEmailAndPassword(auth, cnpj + LOGIN_SUFFIX, senha); proCache = null; return this.currentPro(); },
+    async proSignUp(cnpj, senha, data){
+      const c = await A.createUserWithEmailAndPassword(auth, cnpj + LOGIN_SUFFIX, senha);
+      await F.setDoc(D('profissionais', c.user.uid), { ...data, cnpj, status: 'candidato', criadoEm: F.serverTimestamp() });
+      proCache = null; return this.currentPro();
+    },
+    async currentPro(){
+      const u = auth.currentUser; if (!u || u.isAnonymous) return null;
+      if (proCache) return proCache;
+      const s = await F.getDoc(D('profissionais', u.uid));
+      proCache = s.exists() ? { id: u.uid, ...s.data(), aprovadoMs: s.data().aprovadoEm ? ms(s.data().aprovadoEm) : null } : null;
+      return proCache;
+    },
+    async updatePro(fields){ await F.updateDoc(D('profissionais', auth.currentUser.uid), fields); proCache = null; },
+    async signOut(){ await A.signOut(auth); proCache = null; },
+
+    async listPedidosForPro(){
+      const me = await this.currentPro(); const uid = auth.currentUser.uid;
+      const col = F.collection(db, 'pedidos');
+      const [a, b] = await Promise.all([
+        F.getDocs(F.query(col, F.where('categoria', '==', me.categoria), F.where('verificado', '==', true), F.where('abertoATodos', '==', true))),
+        F.getDocs(F.query(col, F.where('categoria', '==', me.categoria), F.where('verificado', '==', true), F.where('destinatario', '==', uid)))
+      ]);
+      const map = new Map(); [...a.docs, ...b.docs].forEach(d => map.set(d.id, { id: d.id, ...d.data() }));
+      const list = [...map.values()];
+      await Promise.all(list.map(async p => {
+        p.criadoMs = ms(p.criadoEm);
+        p.verificadoMs = p.verificadoEm ? ms(p.verificadoEm) : p.criadoMs;
+        p.paraMim = p.destinatario === uid;
+        try { const k = await F.getDoc(D('pedidos', p.id, 'contestacoes', uid)); p.contestacao = k.exists() ? k.data() : null; } catch(_){ p.contestacao = null; }
+        try { const i = await F.getDoc(D('pedidos', p.id, 'interesses', uid)); p.meuInteresse = i.exists() ? i.data() : null; } catch(_){ p.meuInteresse = null; }
+        p.liberado = (p.liberados || []).includes(uid) || !!p.meuInteresse;
+        if (p.liberado){ try { const c = await F.getDoc(D('pedidos', p.id, 'privado', 'contato')); p.contato = c.exists() ? c.data() : null; } catch(_){} }
+      }));
+      return list.sort((x, y) => y.criadoMs - x.criadoMs);
+    },
+    async sendInteresse(id, data){
+      await F.setDoc(D('pedidos', id, 'interesses', auth.currentUser.uid), { ...data, criadoEm: F.serverTimestamp() });
+    },
+    async contestar(id, data){
+      await F.setDoc(D('pedidos', id, 'contestacoes', auth.currentUser.uid), { ...data, status: 'pendente', criadoEm: F.serverTimestamp() });
+    }
+  };
+}
+
+/* =====================================================================
+   CAMADA DE DADOS · Demonstração (localStorage)
+   Mesma interface e mesmas restrições de acesso, para testar a jornada.
+   ===================================================================== */
+function localStore(){
+  const KEY = 'portico_demo_v1';
+  const H = 3600e3, now = Date.now();
+  const seed = () => ({
+    clientId: 'cli-' + Math.random().toString(36).slice(2, 10),
+    session: null,
+    pros: [
+      { id:'arq-03', cnpj:'11222333000181', senha:'demo1234', nome:'Atelier Vão Livre', categoria:'arq', cadeira:'03', status:'ativo', fundador:true,
+        descricaoCurta:'Residencial · Pinheiros', indice:9.4, obrasVerificadas:14, desvioPrazo:'+4%', desvioOrcamento:'+2%', ticketMinimo:0,
+        regioes:'Zona Oeste', whats:'11900000003', aprovadoMs: now - 34*24*H,
+        criterios:{ prazo:9.3, orcamento:9.6, execucao:9.5, comunicacao:9.4, canteiro:9.0, posObra:9.2 } },
+      { id:'arq-05', nome:'Casa Taipa Arquitetura', categoria:'arq', cadeira:'05', status:'ativo', fundador:true, descricaoCurta:'Retrofit · Centro', indice:9.1, obrasVerificadas:9, desvioPrazo:'+6%', desvioOrcamento:'+3%' },
+      { id:'arq-07', nome:'Estúdio Linha Fina', categoria:'arq', cadeira:'07', status:'ativo', descricaoCurta:'Interiores e reforma · Jardins', indice:8.9, obrasVerificadas:11, desvioPrazo:'+8%', desvioOrcamento:'+1%' },
+      { id:'eng-01', nome:'Fundação Engenharia', categoria:'eng', cadeira:'01', status:'ativo', fundador:true, descricaoCurta:'Gerenciamento de obra', indice:9.3, obrasVerificadas:22, desvioPrazo:'+3%', desvioOrcamento:'+4%' },
+      { id:'eng-04', nome:'Estrutura Clara', categoria:'eng', cadeira:'04', status:'ativo', descricaoCurta:'Cálculo e execução', indice:9.0, obrasVerificadas:17, desvioPrazo:'+5%', desvioOrcamento:'+2%' },
+      { id:'int-02', nome:'Estúdio Rente', categoria:'int', cadeira:'02', status:'ativo', fundador:true, descricaoCurta:'Interiores residenciais', indice:9.2, obrasVerificadas:19, desvioPrazo:'+5%', desvioOrcamento:'+3%' },
+      { id:'int-08', nome:'Ateliê Peso', categoria:'int', cadeira:'08', status:'ativo', descricaoCurta:'Corporativo e varejo', indice:8.8, obrasVerificadas:10, desvioPrazo:'+7%', desvioOrcamento:'+2%' },
+      { id:'mar-01', nome:'Oficina Esquadro', categoria:'mar', cadeira:'01', status:'ativo', fundador:true, descricaoCurta:'Marcenaria sob medida', indice:9.5, obrasVerificadas:31, desvioPrazo:'+2%', desvioOrcamento:'+1%' },
+      { id:'mar-04', nome:'Veio Marcenaria', categoria:'mar', cadeira:'04', status:'ativo', descricaoCurta:'Mobiliário e painéis', indice:9.0, obrasVerificadas:24, desvioPrazo:'+6%', desvioOrcamento:'+2%' }
+    ],
+    pedidos: {
+      'd1': { categoria:'arq', tipo:'Reforma completa', imovel:'Apartamento', bairro:'Perdizes', m2:'120', quando:'Próximos 3 meses', faixa:'R$ 150 a 400 mil', descricao:'Apartamento dos anos 70. Queremos integrar cozinha e sala e refazer elétrica e hidráulica.', abertoATodos:true, destinatario:null, liberados:[], status:'aberto', clienteUid:'cli-seed', criadoMs: now - 2*H , verificado:true, verificadoMs: now - 2*H },
+      'd2': { categoria:'arq', tipo:'Projeto de interiores', imovel:'Apartamento', bairro:'Vila Madalena', m2:'210', quando:'3 a 6 meses', faixa:'Acima de R$ 400 mil', descricao:'Cobertura recém-comprada. Vimos o seu trabalho na Pórtico e gostaríamos de uma proposta.', abertoATodos:false, destinatario:'arq-03', liberados:['arq-03'], status:'aberto', clienteUid:'cli-seed', criadoMs: now - 20*H , verificado:true, verificadoMs: now - 20*H },
+      'd3': { categoria:'arq', tipo:'Reforma parcial', imovel:'Casa', bairro:'Alto de Pinheiros', m2:'280', quando:'6 a 12 meses', faixa:'R$ 150 a 400 mil', descricao:'Retrofit da área social e da cozinha.', abertoATodos:true, destinatario:null, liberados:[], status:'aberto', clienteUid:'cli-seed', criadoMs: now - 30*H , verificado:true, verificadoMs: now - 30*H },
+      'd4': { categoria:'arq', tipo:'Reforma completa', imovel:'Apartamento', bairro:'Pinheiros', m2:'95', quando:'Próximos 3 meses', faixa:'R$ 50 a 150 mil', descricao:'Cozinha e banheiros.', abertoATodos:true, destinatario:null, liberados:['arq-03'], status:'aberto', clienteUid:'cli-seed', criadoMs: now - 36*24*H , verificado:true, verificadoMs: now - 36*24*H },
+      'd5': { categoria:'arq', tipo:'Projeto de interiores', imovel:'Comercial', bairro:'Paraíso', m2:'60', quando:'Sem data definida', faixa:'Até R$ 50 mil', descricao:'Consultório pequeno.', abertoATodos:true, destinatario:null, liberados:[], status:'aberto', clienteUid:'cli-seed', criadoMs: now - 4*24*H , verificado:true, verificadoMs: now - 4*24*H }
+    },
+    contatos: {
+      'd1': { nome:'Renata Alves', whats:'11988880001', email:'' },
+      'd2': { nome:'Marina Costa', whats:'11988880002', email:'' },
+      'd3': { nome:'Paulo Mendes', whats:'11988880003', email:'' },
+      'd4': { nome:'Lúcia Ferraz', whats:'11988880004', email:'' },
+      'd5': { nome:'Caio Nunes', whats:'11988880005', email:'' }
+    },
+    contestacoes: {},
+    interesses: {
+      'd3': { 'arq-03': { mensagem:'Fizemos dois retrofits parecidos no bairro. Podemos visitar na próxima semana.', faixaOrcamento:'Projeto entre R$ 28 e 35 mil', criadoMs: now - 26*H } },
+      'd4': { 'arq-03': { mensagem:'Temos agenda para dezembro.', faixaOrcamento:'Projeto a partir de R$ 18 mil', criadoMs: now - 35.5*24*H } }
+    }
+  });
+  let S = ls.get(KEY, null) || seed();
+  const save = () => ls.set(KEY, S);
+  save();
+  const pub = (p) => { const { senha, ...rest } = p; return rest; };
+  const meId = () => S.session;
+  const MSGS = [
+    'Atendemos o seu bairro e temos agenda para o prazo que você indicou. Podemos marcar uma visita?',
+    'Obra muito parecida com as que fazemos. Gostaria de entender melhor o escopo numa conversa rápida.'
+  ];
+  const FX = ['Projeto entre R$ 20 e 30 mil', 'Proposta após visita técnica'];
+
+  return {
+    mode: 'demo',
+    async listPros(){ return S.pros.filter(p => p.status === 'ativo').map(pub); },
+    async createPedido(p, contato){
+      const id = 'p' + Math.random().toString(36).slice(2, 9);
+      // pedido circula na hora, sem confirmação
+      S.pedidos[id] = { ...p, clienteUid: S.clientId, status: 'aberto', criadoMs: Date.now(), verificado: true, verificadoMs: Date.now(),
+                        liberados: p.destinatario ? [p.destinatario] : [] };
+      S.contatos[id] = { ...contato };
+      // simula respostas de outros profissionais (nunca do membro de demonstração, para você responder como ele)
+      const candidatos = S.pros.filter(x => x.status === 'ativo' && x.categoria === p.categoria && x.id !== 'arq-03'
+        && (p.abertoATodos || x.id === p.destinatario));
+      S.interesses[id] = {};
+      candidatos.slice(0, 2).forEach((x, k) => {
+        S.interesses[id][x.id] = { mensagem: MSGS[k], faixaOrcamento: FX[k], criadoMs: Date.now() + (k + 1) * 60000, simulado: true };
+      });
+      save(); return id;
+    },
+    async getPedido(id){
+      const p = S.pedidos[id]; if (!p) return null;
+      const owner = p.clienteUid === S.clientId;
+      const me = meId(); const pro = S.pros.find(x => x.id === me);
+      const proPode = pro && pro.status === 'ativo' && pro.categoria === p.categoria && (p.abertoATodos || p.destinatario === me);
+      if (!owner && !proPode) throw Object.assign(new Error('permission-denied'), { code: 'permission-denied' });
+      return { id, ...p, isOwner: owner };
+    },
+    async listInteresses(id){
+      if (S.pedidos[id].clienteUid !== S.clientId) throw new Error('permission-denied');
+      return Object.entries(S.interesses[id] || {}).map(([proId, i]) => ({ proId, ...i, pro: pub(S.pros.find(x => x.id === proId) || {}) }));
+    },
+    async getProPublic(id){ const p = S.pros.find(x => x.id === id); return p ? pub(p) : null; },
+    async encerrar(id){ const p = S.pedidos[id]; if (p.clienteUid !== S.clientId) throw new Error('permission-denied'); p.status = 'encerrado'; save(); },
+
+    async proSignIn(cnpj, senha){
+      const p = S.pros.find(x => x.cnpj === cnpj && x.senha === senha);
+      if (!p) throw Object.assign(new Error('cred'), { code: 'auth/invalid-credential' });
+      S.session = p.id; save(); return pub(p);
+    },
+    async proSignUp(cnpj, senha, data){
+      if (S.pros.some(x => x.cnpj === cnpj)) throw Object.assign(new Error('dup'), { code: 'auth/email-already-in-use' });
+      const p = { id: 'pro-' + Math.random().toString(36).slice(2, 8), ...data, cnpj, senha, status: 'candidato' };
+      S.pros.push(p); S.session = p.id; save(); return pub(p);
+    },
+    async currentPro(){ const p = S.pros.find(x => x.id === S.session); return p ? pub(p) : null; },
+    async updatePro(fields){
+      const p = S.pros.find(x => x.id === S.session);
+      const blocked = ['status','indice','cadeira','obrasVerificadas','fundador','cnpj','categoria'];
+      Object.keys(fields).forEach(k => { if (!blocked.includes(k)) p[k] = fields[k]; });
+      save();
+    },
+    async signOut(){ S.session = null; save(); },
+    async demoLogin(){ S.session = 'arq-03'; save(); },
+
+    async listPedidosForPro(){
+      const me = S.pros.find(x => x.id === S.session);
+      return Object.entries(S.pedidos)
+        .filter(([, p]) => p.verificado && p.categoria === me.categoria && (p.abertoATodos || p.destinatario === me.id))
+        .map(([id, p]) => {
+          const liberado = p.liberados.includes(me.id) || !!(S.interesses[id] || {})[me.id];
+          return { id, ...p, paraMim: p.destinatario === me.id,
+                   meuInteresse: (S.interesses[id] || {})[me.id] || null,
+                   contestacao: ((S.contestacoes || {})[id] || {})[me.id] || null,
+                   liberado, contato: liberado ? S.contatos[id] : null };
+        })
+        .sort((a, b) => b.criadoMs - a.criadoMs);
+    },
+    async sendInteresse(id, data){
+      const p = S.pedidos[id];
+      if (Date.now() > (p.verificadoMs || p.criadoMs) + PRAZO_H * 3600e3) throw new Error('prazo');
+      S.interesses[id] = S.interesses[id] || {};
+      if (S.interesses[id][S.session]) throw new Error('permission-denied');
+      S.interesses[id][S.session] = { ...data, criadoMs: Date.now() };
+      save();
+    },
+    async contestar(id, data){
+      S.contestacoes = S.contestacoes || {}; S.contestacoes[id] = S.contestacoes[id] || {};
+      if (S.contestacoes[id][S.session]) throw new Error('permission-denied');
+      S.contestacoes[id][S.session] = { ...data, status: 'pendente', criadoMs: Date.now() };
+      save();
+    }
+  };
+}
+
+/* ===================== INICIALIZAÇÃO ===================== */
+let store;
+try { store = CONFIGURED ? await firebaseStore() : localStore(); }
+catch (e){ console.error('Falha ao iniciar o Firebase, usando demonstração', e); store = localStore(); }
+$('#demoBar').hidden = store.mode !== 'demo';
+$('#demoBtn').hidden = store.mode !== 'demo';
+
+/* ===================== CONTEÚDO ESTÁTICO ===================== */
+const CRITERIA = [
+  ['01','Prazo','Entrega na data combinada',25,'prazo'],
+  ['02','Orçamento','Realizado comparado ao contratado',25,'orcamento'],
+  ['03','Execução','Qualidade técnica e acabamento',20,'execucao'],
+  ['04','Comunicação','Clareza, retorno e registro das decisões',10,'comunicacao'],
+  ['05','Canteiro','Organização, limpeza e convivência com vizinhos',10,'canteiro'],
+  ['06','Pós-obra','Avaliação seis meses após a entrega',10,'posObra']
+];
+const critHtml = () => CRITERIA.map(([n,t,d,w]) => `
+  <div class="crit"><span class="n">${n}</span>
+    <div><span class="t">${t}</span><span class="d">${d}</span><div class="bar"><i style="width:${w*4}%"></i></div></div>
+    <span class="w">${w}%</span></div>`).join('');
+const faqHtml = (list) => list.map(([q,a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+$('#criteria').innerHTML = critHtml();
+$('#criteriaB2B').innerHTML = critHtml();
+$('#history').innerHTML = [
+  ['Apartamento 140 m²','Reforma completa · Pinheiros','No prazo','+1,8%','9,6'],
+  ['Casa térrea','Retrofit · Alto de Pinheiros','+12 dias','+3,1%','9,2'],
+  ['Cobertura 210 m²','Interiores · Vila Madalena','No prazo','-0,5%','9,7'],
+  ['Apartamento 85 m²','Reforma parcial · Perdizes','+6 dias','+2,4%','9,1'],
+  ['Consultório','Projeto comercial · Paraíso','No prazo','+0,9%','9,4']
+].map(([o,s,p,c,n]) => `<tr><td><strong style="font-weight:500">${o}</strong><small>${s}</small></td><td>${p}</td><td>${c}</td><td class="nota">${n}</td></tr>`).join('');
+$('#guides').innerHTML = [
+  ['CHECKLIST','O que perguntar antes de contratar','Dez perguntas que separam quem planeja de quem improvisa.'],
+  ['ORÇAMENTO','Como ler um orçamento de obra','O que precisa estar escrito para não virar aditivo depois.'],
+  ['PRAZO','Por que toda obra atrasa','Os pontos onde o cronograma costuma escapar e como se proteger.']
+].map(([k,t,d]) => `<a class="guide" href="#guia"><div class="hatch"><span class="ph">[IMAGEM]</span></div>
+  <div class="guide-body"><span class="k">${k}</span><h3>${t}</h3><p>${d}</p><span class="go">Ler o guia ${arrow}</span></div></a>`).join('');
+$('#faqB2C').innerHTML = faqHtml([
+  ['Quanto custa usar a Pórtico?','Nada. Ver perfis, pedir propostas e falar com os profissionais é gratuito. Quem mantém a plataforma são os profissionais selecionados.'],
+  ['Qual a diferença entre os dois caminhos?','No primeiro, você escolhe um profissional e o pedido vai só para ele. No segundo, a sua obra é mostrada, sem os seus dados, aos profissionais da categoria, e quem tiver interesse responde. Você pode marcar, no primeiro caminho, que também quer receber outras propostas.'],
+  ['Quem vê o meu telefone?','No caminho 1, o profissional que você escolheu. No caminho 2, os profissionais da categoria que se interessarem pela sua obra e responderem em até 48h. Ninguém fora da curadoria recebe o seu contato.'],
+  ['Como acompanho o meu pedido?','Ao enviar, você recebe um link só seu. Por ele você vê quem respondeu, com a mensagem e a faixa de orçamento, e encerra o pedido quando quiser parar de receber contatos.'],
+  ['A Pórtico participa da negociação?','Não. A conversa e o contrato são diretos entre você e o profissional. Ao final da obra, pedimos a sua avaliação, que fica visível para o profissional.'],
+  ['E se a obra não sair como combinado?','A obra é contratada diretamente com o profissional, e a Pórtico não faz parte do contrato. O que fazemos é registrar a sua avaliação: ela entra no histórico público do profissional, e quem fica abaixo do padrão perde a cadeira.']
+]);
+$('#them').innerHTML = ['Você paga por contato, feche ou não feche o negócio','O mesmo pedido vai para dezenas de concorrentes','Disputa por preço com quem não tem histórico','Avaliações sem confirmação de que a obra existiu'].map(t => `<li>${cross}<span>${t}</span></li>`).join('');
+$('#us').innerHTML = ['Mensalidade fixa e nenhuma taxa por negócio','Poucos profissionais por categoria, e novas vagas só com demanda','Você responde só ao que faz sentido para você','Histórico verificado, que vira argumento de venda'].map(t => `<li>${check('#C9A877')}<span>${t}</span></li>`).join('');
+$('#steps').innerHTML = [
+  ['1','Cadastro com CNPJ','Empresa ativa na Receita Federal é o primeiro filtro.'],
+  ['2','Verificação','Registro no CAU ou CREA quando aplicável, certidões e portfólio conferidos.'],
+  ['3','Três clientes avaliam','Você indica 6 obras dos últimos dois anos e nós escolhemos 3 clientes para responder. Para entrar, média a partir de 8,0.'],
+  ['4','Cadeira renovável','A permanência depende do Índice Pórtico. A vaga não é vitalícia.']
+].map(([n,t,d]) => `<div class="step"><span class="n">${n}</span><h3>${t}</h3><p>${d}</p></div>`).join('');
+$('#seatFeats').innerHTML = ['Perfil verificado com histórico de obras','Pedidos com escopo, bairro, prazo e investimento','Sem taxa sobre os negócios fechados','Selo Pórtico para usar no seu site e redes','Um post no feed da Pórtico por trimestre no plano anual'].map(f => `<li>${check('#C9A877')}<span>${f}</span></li>`).join('');
+$('#faqB2B').innerHTML = faqHtml([
+  ['Por que o acesso é com CNPJ?','Para manter esta área entre empresas. No cadastro, consultamos a situação do CNPJ na Receita Federal.'],
+  ['Como chegam os pedidos?','De dois jeitos: quando o cliente escolhe você na curadoria (o pedido vem só para você, já com o contato) e quando ele abre o pedido para a categoria. Nesse caso você vê a obra sem os dados do cliente e tem 48h para demonstrar interesse.'],
+  ['Quando vejo o contato do cliente?','Quando ele escolher você entre os interessados. A partir daí, nome e WhatsApp aparecem no seu painel.'],
+  ['Posso perder a cadeira?','Sim. Abaixo de 8,0 no Índice por dois ciclos seguidos, a cadeira volta para a fila. Você recebe o detalhamento antes e pode contestar avaliações.'],
+  ['Quanto custa?','O mesmo valor para todas as categorias: R$ 1.050 no plano trimestral (R$ 350 por mês) ou R$ 3.900 no anual (R$ 325 por mês, que também pode ser pago em 12x). Fundadores têm 30% de desconto travado: R$ 735 no trimestral ou R$ 2.730 no anual.'],
+  ['Quando começo a pagar?','Fundadores só começam depois de 90 dias ou de 3 pedidos qualificados, o que vier primeiro. Se em 90 dias chegarem menos de 3, você escolhe entre sair sem pagar nada ou começar o plano.'],
+  ['E se eu receber um pedido fora do meu perfil?','Você pode contestar em até 48h, pelo painel. A Pórtico revisa e, se o pedido estiver fora do escopo que você declarou, ele sai da sua contagem.'],
+  ['A Pórtico cobra comissão?','Não. Nenhuma taxa sobre contratos. Você paga apenas o plano da cadeira.']
+]);
+
+/* ===================== PLANOS + PEDIDO QUALIFICADO ===================== */
+$('#cycles').innerHTML = `
+  <div class="cycle"><span class="n">Trimestral</span><span class="p">${brl(PLANOS.trimestral.total)}</span>
+    <span class="d">a cada 3 meses</span><span class="m">${brl(PLANOS.trimestral.mes)} por mês</span></div>
+  <div class="cycle"><span class="n">Anual <small>2 MESES GRÁTIS</small></span><span class="p">${brl(PLANOS.anual.total)}</span>
+    <span class="d">por ano, à vista ou em 12x · inclui 1 post por trimestre</span><span class="m">${brl(PLANOS.anual.mes)} por mês</span></div>
+  <p class="fund"><strong>Fundadores, 30% de desconto travado:</strong> ${brl(PLANOS.trimestral.fundador)} no trimestral ou ${brl(PLANOS.anual.fundador)} no anual.</p>`;
+const QUAL = [
+  ['01','Chegou até você','É da sua categoria, e o cliente escolheu você ou abriu o pedido dentro do ticket mínimo e das regiões que você declarou.'],
+  ['02','Obra concreta','Início previsto em até 6 meses e faixa de investimento informada. Quando o cliente escolhe você diretamente, conta sempre.'],
+  ['03','Cliente real','Pedido com nome, WhatsApp e escopo da obra. Se o contato não existir ou o pedido for falso, você contesta e ele sai da contagem.'],
+  ['04','Pedido único','A mesma obra do mesmo cliente conta uma vez. Pedidos de alguém ligado à sua empresa não contam.']
+];
+$('#qualGrid').innerHTML = QUAL.map(([n,t,d]) => `<div><span class="n">${n}</span><h3>${t}</h3><p>${d}</p></div>`).join('');
+$('#qualRules').innerHTML = [
+  ['Conta quando chega','O pedido entra na contagem quando chega até você, responda ou não. Assim a regra é a mesma para todos.'],
+  ['Contestação em 48h','Recebeu algo fora do seu perfil, ou o contato não existe? Conteste pelo painel. Se a Pórtico confirmar, o pedido sai da contagem.'],
+  ['Você decide no fim','Se em 90 dias chegarem menos de 3 pedidos qualificados, você escolhe entre sair sem custo ou começar o plano.']
+].map(([t,d]) => `<div><strong>${t}</strong>${d}</div>`).join('');
+
+/* ===================== CONTEÚDO PÓRTICO ===================== */
+const PACKS = [
+  { id:'post', k:'ESSENCIAL', name:'Post no feed', price:'R$ 1.200', unit:'por post', d:'Um carrossel sobre uma obra entregue, com texto e arte da Pórtico.',
+    items:['Curadoria das fotos que você enviar','Texto e design no padrão Pórtico','Publicação em collab com o seu perfil','Uma rodada de ajustes'] },
+  { id:'diario', k:'COMPLETO', name:'Diário de obra', price:'R$ 7.000', unit:'5 peças', star:true, d:'A obra contada do começo ao fim, com visitas da nossa equipe.',
+    items:['Duas visitas com fotografia e vídeo','Três carrosséis e dois reels','Roteiro e edição feitos pela Pórtico','Publicação em collab com o seu perfil','Autorização do proprietário cuidada por nós'] },
+  { id:'destaque', k:'VITRINE', name:'Destaque na curadoria', price:'R$ [___]', unit:'por mês', d:'Sua obra em destaque no topo da sua categoria, sempre identificada como patrocinada.',
+    items:['Primeira posição da categoria no site','Obra em destaque no topo do seu perfil','Selo "Patrocinado" visível ao cliente'], rule:'Exclusivo para cadeiras com Índice a partir de 9,0.' }
+];
+const packsHtml = () => PACKS.map(p => `
+  <div class="pack${p.star ? ' star' : ''}">${p.star ? '<span class="badge">RECOMENDADO</span>' : ''}
+    <span class="k">${p.k}</span><h3>${p.name}</h3>
+    <div class="pv"><b>${p.price}</b><span>${p.unit}</span></div>
+    <p class="d">${p.d}</p>
+    <ul>${p.items.map(i => `<li>${check('#8A6A3B')}<span>${i}</span></li>`).join('')}</ul>
+    ${p.rule ? `<p class="rule">${p.rule}</p>` : ''}
+    <button type="button" class="btn ${p.star ? 'btn-solid' : 'btn-line'}" data-pack="${p.id}">Quero este</button>
+  </div>`).join('');
+$('#packsPublic').innerHTML = packsHtml();
+$('#packsPanel').innerHTML = packsHtml();
+
+/* ===================== FORMULÁRIO DE PEDIDO (compartilhado) ===================== */
+const opts = (arr, sel) => arr.map((t, i) => `<option value="${esc(t)}"${sel === i ? ' selected' : ''}>${esc(t)}</option>`).join('');
+function pedidoFormHtml(px, { categoria, outros, submit }){
+  return `
+    ${categoria ? `<label for="${px}-cat">Categoria</label><select id="${px}-cat"><option value="">Escolha</option>${CATS.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}</select>` : ''}
+    <div class="row">
+      <div><label for="${px}-tipo">O que você vai fazer</label><select id="${px}-tipo">${opts(TIPOS)}</select></div>
+      <div><label for="${px}-imovel">Imóvel</label><select id="${px}-imovel">${opts(IMOVEIS)}</select></div>
+    </div>
+    <div class="row">
+      <div><label for="${px}-bairro">Bairro e cidade</label><input id="${px}-bairro" placeholder="Bairro, cidade"></div>
+      <div><label for="${px}-m2">Metragem aprox.</label><input id="${px}-m2" inputmode="numeric" placeholder="90"></div>
+    </div>
+    <div class="row">
+      <div><label for="${px}-quando">Quando começa</label><select id="${px}-quando">${opts(QUANDO)}</select></div>
+      <div><label for="${px}-faixa">Investimento</label><select id="${px}-faixa">${opts(FAIXAS, 4)}</select></div>
+    </div>
+    <label for="${px}-desc">Conte um pouco mais (opcional)</label>
+    <textarea id="${px}-desc" maxlength="600" placeholder="O que precisa ser feito, o que é importante para você..."></textarea>
+    <span class="sep">SEUS DADOS · SÓ VÃO PARA PROFISSIONAIS DA CURADORIA</span>
+    <label for="${px}-nome">Seu nome</label><input id="${px}-nome" autocomplete="name">
+    <div class="row">
+      <div><label for="${px}-whats">WhatsApp</label><input id="${px}-whats" type="tel" autocomplete="tel" placeholder="(11) 90000-0000"></div>
+      <div><label for="${px}-email">E-mail (opcional)</label><input id="${px}-email" type="email" autocomplete="email"></div>
+    </div>
+    ${outros ? `<label class="chk box"><input type="checkbox" id="${px}-outros"><span>Quero receber também propostas de outros profissionais desta categoria. <em style="font-style:normal;opacity:.75">Quem se interessar também recebe o seu contato.</em></span></label>` : ''}
+    <label class="chk"><input type="checkbox" id="${px}-lgpd"><span>Autorizo a Pórtico a usar estes dados para o meu pedido e a compartilhar o meu contato com o profissional escolhido ou com os profissionais da curadoria que se interessarem pela minha obra.</span></label>
+    <p class="err" id="${px}-err" role="alert"></p>
+    <button type="submit" class="btn ${categoria ? 'btn-brass' : 'btn-solid'}" id="${px}-btn">${submit}</button>`;
+}
+function readPedido(px, { categoria }){
+  const v = (id) => ($(`#${px}-${id}`) || {}).value?.trim() ?? '';
+  const err = (m, el) => { $(`#${px}-err`).textContent = m; if (el) $(`#${px}-${el}`).focus(); return null; };
+  $(`#${px}-err`).textContent = '';
+  if (categoria && !v('cat')) return err('Escolha a categoria de profissional.', 'cat');
+  if (!v('bairro')) return err('Informe o bairro da obra.', 'bairro');
+  if (v('nome').length < 2) return err('Informe o seu nome.', 'nome');
+  const w = digits(v('whats')); if (w.length < 10 || w.length > 11) return err('Confira o WhatsApp com DDD.', 'whats');
+  if (!$(`#${px}-lgpd`).checked) return err('Para enviar, é preciso autorizar o uso dos dados.');
+  return {
+    pedido: { categoria: categoria ? v('cat') : null, tipo: v('tipo'), imovel: v('imovel'), bairro: v('bairro'), m2: digits(v('m2')),
+              quando: v('quando'), faixa: v('faixa'), descricao: v('desc').slice(0, 600) },
+    contato: { nome: v('nome'), whats: w, email: v('email') },
+    outros: !!($(`#${px}-outros`) || {}).checked
+  };
+}
+$('#formAberto').innerHTML = pedidoFormHtml('fa', { categoria: true, outros: false, submit: 'Enviar e receber propostas' });
+$('#formDireto').innerHTML = pedidoFormHtml('fd', { categoria: false, outros: true, submit: 'Enviar pedido' });
+document.addEventListener('input', (e) => {
+  if (!e.target.matches('input[type=tel]')) return;
+  const d = digits(e.target.value).slice(0, 11);
+  e.target.value = d.length > 6 ? `(${d.slice(0,2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}` : d.length > 2 ? `(${d.slice(0,2)}) ${d.slice(2)}` : d;
+});
+
+async function submitPedido(px, base, btnLabel){
+  const btn = $(`#${px}-btn`); btn.disabled = true; btn.textContent = 'Enviando…';
+  try {
+    const id = await store.createPedido(base.pedido, base.contato);
+    const mine = ls.get('portico_meus_pedidos', []); mine.unshift(id); ls.set('portico_meus_pedidos', mine.slice(0, 20));
+    if ($('#modalDireto').open) $('#modalDireto').close();
+    $(`#form${px === 'fa' ? 'Aberto' : 'Direto'}`).reset();
+    location.hash = '#/pedido/' + id;
+  } catch (e){
+    console.error(e);
+    $(`#${px}-err`).textContent = 'Não foi possível enviar agora. Tente de novo em instantes.';
+  } finally { btn.disabled = false; btn.textContent = btnLabel; }
+}
+$('#formAberto').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const r = readPedido('fa', { categoria: true }); if (!r) return;
+  r.pedido.abertoATodos = true; r.pedido.destinatario = null;
+  submitPedido('fa', r, 'Enviar e receber propostas');
+});
+let diretoPro = null;
+$('#formDireto').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const r = readPedido('fd', { categoria: false }); if (!r) return;
+  r.pedido.categoria = diretoPro.categoria; r.pedido.destinatario = diretoPro.id; r.pedido.abertoATodos = r.outros;
+  submitPedido('fd', r, 'Enviar pedido');
+});
+$('#mdClose').addEventListener('click', () => $('#modalDireto').close());
+
+/* ===================== CURADORIA (B2C) ===================== */
+let PROS = [], currentCat = 'arq';
+async function loadPros(){
+  try { PROS = await store.listPros(); } catch (e){ console.error(e); PROS = []; }
+  $('#curNote').textContent = store.mode === 'demo'
+    ? 'Só entra quem passa pela verificação de empresa, registro e obras entregues. Perfis e números são ilustrativos.'
+    : 'Só entra quem passa pela verificação de empresa, registro e obras entregues.';
+  renderCats(); renderPros();
+}
+function renderCats(){
+  $('#cats').innerHTML = CATS.map(c => {
+    const filled = PROS.filter(p => p.categoria === c.id).length;
+    return `<button type="button" class="cat" data-cat="${c.id}" aria-pressed="${c.id === currentCat}">
+      <span class="name">${c.name}</span>
+      <span class="lbl">${filled ? `${filled} selecionado${filled > 1 ? 's' : ''}` : 'Em seleção'}</span></button>`;
+  }).join('');
+}
+function proCardHtml(p, { actions = true } = {}){
+  return `<article class="pro">
+    <div class="hatch pro-photo"><span class="ph">[OBRA EM DESTAQUE]</span>${p.cadeira ? `<span class="seat">CADEIRA ${esc(p.cadeira)}</span>` : ''}</div>
+    <div class="pro-body">
+      <div class="pro-top">
+        <div><h3>${esc(p.nome)}</h3><span class="meta">${esc(p.descricaoCurta || catName(p.categoria))}</span></div>
+        <div class="score"><span class="v">${fmtNota(p.indice)}</span><span class="k">ÍNDICE</span></div>
+      </div>
+      <div class="pro-kpis">
+        <div><span class="k">Obras</span><span class="v">${esc(p.obrasVerificadas ?? '—')}</span></div>
+        <div><span class="k">Prazo</span><span class="v">${esc(p.desvioPrazo || '—')}</span></div>
+        <div><span class="k">Orçamento</span><span class="v">${esc(p.desvioOrcamento || '—')}</span></div>
+      </div>
+      ${actions ? `<div class="pro-acts"><button type="button" class="btn btn-solid" data-pedir="${esc(p.id)}">Pedir proposta</button></div>` : ''}
+    </div></article>`;
+}
+function renderPros(){
+  const list = PROS.filter(p => p.categoria === currentCat).sort((a, b) => (b.indice || 0) - (a.indice || 0));
+  if (!list.length){
+    $('#pros').innerHTML = `<div class="hatch empty"><p class="eyebrow">Seleção em andamento</p>
+      <h3>Os primeiros profissionais desta categoria estão em avaliação.</h3>
+      <p>Você já pode descrever a sua obra. Avisamos assim que houver respostas.</p>
+      <a href="#indicacao" class="btn btn-line" style="margin-top:12px">Descrever minha obra</a></div>`;
+    return;
+  }
+  $('#pros').innerHTML = `<div class="pros">${list.map(p => proCardHtml(p)).join('')}</div>`;
+}
+document.addEventListener('click', (e) => {
+  const c = e.target.closest('[data-cat]'); if (c){ currentCat = c.dataset.cat; renderCats(); renderPros(); return; }
+  const b = e.target.closest('[data-pedir]');
+  if (b){
+    diretoPro = PROS.find(p => p.id === b.dataset.pedir); if (!diretoPro) return;
+    $('#mdTitle').textContent = diretoPro.nome;
+    $('#fd-err').textContent = '';
+    $('#modalDireto').showModal();
+    return;
+  }
+  const pk = e.target.closest('[data-pack]');
+  if (pk){
+    const p = PACKS.find(x => x.id === pk.dataset.pack);
+    window.open(waLink(WHATS_PORTICO, `Olá, Pórtico! Tenho interesse no pacote ${p.name} (${p.price}).${proMe ? '\nEmpresa: ' + proMe.nome : ''}`), '_blank');
+  }
+});
+
+/* ===================== PÁGINA DO PEDIDO (cliente) ===================== */
+async function renderPedido(id){
+  const box = $('#pedidoBox');
+  box.innerHTML = '<p class="eyebrow">Carregando pedido…</p>';
+  let p;
+  try { p = await store.getPedido(id); } catch (e){ p = null; }
+  if (!p || !p.isOwner){
+    box.innerHTML = `<div class="hatch empty"><p class="eyebrow">Pedido indisponível</p>
+      <h3>Não encontramos este pedido neste aparelho.</h3>
+      <p>O acompanhamento fica disponível no navegador em que o pedido foi feito. Se precisar, fale com a Pórtico.</p>
+      <a class="btn btn-line" style="margin-top:12px" href="${waLink(WHATS_PORTICO, 'Olá, Pórtico! Preciso de ajuda com o meu pedido ' + id)}" target="_blank" rel="noopener">Falar com a Pórtico</a></div>`;
+    return;
+  }
+  let ints = [];
+  try { ints = await store.listInteresses(id); } catch (e){ console.error(e); }
+  const dest = p.destinatario ? await store.getProPublic(p.destinatario) : null;
+  const aberto = p.status === 'aberto';
+  const fim = deadline(p), venceu = p.verificado && Date.now() > fim;
+  const url = location.href;
+
+  const destCard = (p.verificado && p.destinatario && !ints.some(i => i.proId === p.destinatario)) ? `
+    <div class="int"><div class="who"><span class="eyebrow">VOCÊ ESCOLHEU</span><b>${esc(dest ? dest.nome : 'Profissional')}</b>
+      <span class="m">${esc(dest ? (dest.descricaoCurta || '') : '')}</span></div>
+      <div class="int-side"><span class="wait">Ele recebeu o seu contato e deve te chamar no WhatsApp em até 48h.</span></div></div>` : '';
+
+  const intCards = ints.sort((a, b) => (b.pro?.indice || 0) - (a.pro?.indice || 0)).map(i => {
+    return `<div class="int">
+      <div class="who">
+        ${i.simulado ? '<span class="tag-sim">RESPOSTA SIMULADA</span>' : ''}
+        <b>${esc(i.pro?.nome || 'Profissional')}</b>
+        <span class="m">${esc(i.pro?.descricaoCurta || '')}${i.pro?.cadeira ? ' · Cadeira ' + esc(i.pro.cadeira) : ''}</span>
+        <div class="msg">${esc(i.mensagem)}${i.faixaOrcamento ? `\n<strong>Orçamento indicado:</strong> ${esc(i.faixaOrcamento)}` : ''}</div>
+      </div>
+      <div class="int-side">
+        <div class="score"><span class="v">${fmtNota(i.pro?.indice)}</span><span class="k">ÍNDICE</span></div>
+        <span class="done">${esc((i.pro?.nome || 'O profissional').split(' ')[0])} recebeu o seu contato e vai te chamar no WhatsApp.</span>
+      </div></div>`;
+  }).join('');
+
+  const vazio = !p.verificado ? `<div class="hatch empty"><h3>Seu pedido está em análise.</h3>
+      <p>A Pórtico está revisando este pedido. Se precisar de alguma informação, chamamos você no WhatsApp.</p></div>`
+    : (!ints.length && !destCard) ? `<div class="hatch empty"><h3>${venceu ? 'O prazo de respostas terminou.' : 'Aguardando respostas.'}</h3>
+      <p>${venceu ? 'Nenhum profissional respondeu desta vez. Fale com a Pórtico e ajudamos você a encontrar alguém.' : `Os profissionais têm até ${fmtWhen(fim)} para responder. Volte por este link.`}</p></div>` : '';
+
+  box.innerHTML = `
+    <div class="ped-head">
+      <div><p class="eyebrow">Seu pedido · ${!aberto ? 'Encerrado' : p.verificado ? 'Aberto' : 'Em análise'}</p>
+        <h1>${esc(p.tipo)} · ${esc(p.bairro)}</h1></div>
+      ${aberto ? '<button type="button" class="btn btn-line" id="encerrar">Encerrar pedido</button>' : ''}
+    </div>
+    <div class="ped-sum">
+      <div><span class="k">Categoria</span>${esc(catName(p.categoria))}</div>
+      <div><span class="k">Imóvel</span>${esc(p.imovel)}${p.m2 ? ' · ' + esc(p.m2) + ' m²' : ''}</div>
+      <div><span class="k">Quando começa</span>${esc(p.quando)}</div>
+      <div><span class="k">Investimento</span>${esc(p.faixa)}</div>
+      <div><span class="k">Quem pode responder</span>${p.abertoATodos ? (p.destinatario ? 'O escolhido e a categoria' : 'Profissionais da categoria') : 'Só o profissional escolhido'}</div>
+    </div>
+    ${p.descricao ? `<div class="ped-desc">${esc(p.descricao)}</div>` : ''}
+    <div class="link-box"><span>Guarde este link: é por ele que você acompanha as respostas.</span>
+      <button type="button" class="btn btn-line" id="copyLink">Copiar link</button></div>
+    <div class="ped-sec">
+      <h2>${ints.length ? `${ints.length} profissiona${ints.length > 1 ? 'is interessados' : 'l interessado'}` : 'Respostas'}</h2>
+      <p>Quem respondeu recebeu o seu contato e vai falar com você pelo WhatsApp. Se já encontrou o profissional, encerre o pedido para não receber novas respostas.</p>
+    </div>
+    ${destCard}${intCards}${vazio}`;
+
+  $('#copyLink').addEventListener('click', async (e) => {
+    try { await navigator.clipboard.writeText(url); e.target.textContent = 'Link copiado'; } catch(_) { e.target.textContent = url; }
+  });
+  const enc = $('#encerrar');
+  if (enc) enc.addEventListener('click', async () => { enc.disabled = true; await store.encerrar(id); renderPedido(id); });
+}
+
+/* ===================== GATE: CNPJ + SENHA ===================== */
+let signup = false;
+$('#g-cat').innerHTML = `<option value="">Escolha</option>` + CATS.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+const CNAE_OK = (c) => /^(41|42|43|71|16|31|25)/.test(c) || /^(7410|2391|4744|2330|2342|8130|4742|2319)/.test(c);
+function setMsg(t, k){ const m = $('#gateMsg'); m.textContent = t; m.className = 'gate-msg ' + (k || ''); }
+function setMode(isSignup){
+  signup = isSignup;
+  $('#signupFields').hidden = !signup; $('#senha2Wrap').hidden = !signup;
+  $('#gateTitle').textContent = signup ? 'Cadastre a sua empresa' : 'Acesse com o CNPJ da sua empresa';
+  $('#gateSub').textContent = signup ? 'Depois do cadastro, a sua candidatura entra em análise.' : 'Use o CNPJ e a senha cadastrados.';
+  $('#gateBtn').textContent = signup ? 'Cadastrar empresa' : 'Entrar';
+  $('#toggleMode').textContent = signup ? 'Já tenho acesso. Entrar' : 'Primeiro acesso? Cadastre a sua empresa';
+  $('#senha').autocomplete = signup ? 'new-password' : 'current-password';
+  setMsg('');
+}
+$('#toggleMode').addEventListener('click', () => setMode(!signup));
+$('#cnpj').addEventListener('input', (e) => { e.target.value = fmtCnpj(e.target.value); e.target.classList.remove('bad'); setMsg(''); });
+$('#demoBtn').addEventListener('click', async () => { await store.demoLogin(); await route(); window.scrollTo(0, 0); });
+
+async function checkReceita(d){
+  const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 8000);
+  try {
+    const r = await fetch(`https://brasilapi.com.br/api/cnpj/v1/${d}`, { signal: ctrl.signal });
+    if (r.status === 404) return { notFound: true };
+    if (!r.ok) return { offline: true };
+    const j = await r.json();
+    const cnaes = [String(j.cnae_fiscal || '')].concat((j.cnaes_secundarios || []).map(x => String(x.codigo || '')));
+    return { name: j.nome_fantasia || j.razao_social || '', razao: j.razao_social || '',
+             active: String(j.descricao_situacao_cadastral || '').toUpperCase() === 'ATIVA', sector: cnaes.some(CNAE_OK) };
+  } catch(_) { return { offline: true }; } finally { clearTimeout(t); }
+}
+
+$('#gateForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const d = digits($('#cnpj').value), senha = $('#senha').value;
+  if (!validCnpj(d)){ $('#cnpj').classList.add('bad'); $('#cnpj').focus(); return setMsg('CNPJ inválido. Confira os números.', 'err'); }
+  if (senha.length < 6){ $('#senha').focus(); return setMsg('A senha precisa ter pelo menos 6 caracteres.', 'err'); }
+  const btn = $('#gateBtn'); const label = btn.textContent; btn.disabled = true;
+  try {
+    if (!signup){
+      btn.textContent = 'Entrando…';
+      await store.proSignIn(d, senha);
+    } else {
+      const nome = $('#g-nome').value.trim(), cat = $('#g-cat').value, w = digits($('#g-whats').value);
+      if (nome.length < 2){ $('#g-nome').focus(); throw { ui: 'Informe o seu nome.' }; }
+      if (!cat){ $('#g-cat').focus(); throw { ui: 'Escolha a sua categoria.' }; }
+      if (w.length < 10){ $('#g-whats').focus(); throw { ui: 'Confira o WhatsApp com DDD.' }; }
+      if (senha !== $('#senha2').value){ $('#senha2').focus(); throw { ui: 'As senhas não conferem.' }; }
+      btn.textContent = 'Consultando Receita Federal…';
+      const rf = await checkReceita(d);
+      if (rf.notFound) throw { ui: 'CNPJ não encontrado na Receita Federal.' };
+      if (rf.active === false) throw { ui: 'Este CNPJ não está ativo na Receita Federal.' };
+      btn.textContent = 'Criando acesso…';
+      await store.proSignUp(d, senha, { nome: rf.name || nome, razaoSocial: rf.razao || '', contatoNome: nome, categoria: cat, whats: w,
+                                        cnaeCompativel: rf.offline ? null : !!rf.sector });
+    }
+    $('#senha').value = ''; $('#senha2').value = '';
+    await route(); window.scrollTo(0, 0);
+  } catch (err){
+    const code = err && err.code;
+    setMsg(err.ui || (code === 'auth/invalid-credential' || code === 'auth/wrong-password' || code === 'auth/user-not-found' ? 'CNPJ ou senha incorretos.'
+      : code === 'auth/email-already-in-use' ? 'Este CNPJ já tem acesso. Entre com a senha.'
+      : code === 'auth/too-many-requests' ? 'Muitas tentativas. Aguarde alguns minutos.'
+      : 'Não foi possível concluir agora. Tente de novo.'), 'err');
+  } finally { btn.disabled = false; btn.textContent = label; }
+});
+$('#logout').addEventListener('click', async () => { await store.signOut(); proMe = null; location.hash = '#/'; });
+
+/* ===================== CANDIDATO ===================== */
+function renderCandidate(me){
+  $('#coName').textContent = me.nome || 'sua empresa';
+  $('#coCnpj').textContent = fmtCnpj(me.cnpj);
+  $('#p-cnpj').value = fmtCnpj(me.cnpj);
+  $('#p-cat').value = catName(me.categoria);
+  $('#p-port').value = me.portfolio || '';
+  $('#p-whats').value = me.whats ? fmtWhats(me.whats) : '';
+  $('#p-apres').value = me.apresentacao || '';
+  $('#seats').innerHTML = `<div class="seat-row h"><span>CATEGORIA</span><span>OCUPADAS</span><span>FUNDADORAS</span></div>` +
+    CATS.map(c => {
+      const filled = PROS.filter(p => p.categoria === c.id).length, fund = Math.max(0, FUNDADORAS_POR_CAT - filled);
+      return `<div class="seat-row"><span><strong style="font-weight:500">${c.name}</strong>${c.id === me.categoria ? ' <span class="st open">· sua categoria</span>' : ''}</span>
+        <span>${filled} de ${c.vagas}</span><span class="st${fund ? ' open' : ''}">${fund ? `${fund} de ${FUNDADORAS_POR_CAT} disponíveis` : 'Encerradas'}</span></div>`;
+    }).join('');
+}
+$('#formCand').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const w = digits($('#p-whats').value);
+  if (w && w.length < 10){ $('#candErr').textContent = 'Confira o WhatsApp com DDD.'; return; }
+  $('#candErr').textContent = '';
+  try {
+    await store.updatePro({ portfolio: $('#p-port').value.trim(), whats: w, apresentacao: $('#p-apres').value.trim().slice(0, 600) });
+    $('#candOk').style.display = 'block';
+  } catch (err){ console.error(err); $('#candErr').textContent = 'Não foi possível salvar agora.'; }
+});
+
+/* ===================== PAINEL DO MEMBRO ===================== */
+let proMe = null, REQS = [], reqFilter = 'todos', openInt = null;
+const FAIXA_IDX = (f) => FAIXAS.indexOf(f);
+// Pedido qualificado: chegou até você, obra concreta, cliente real (contato válido), único. Falso ou duplicado: contestação.
+function isQualified(r){
+  if (proMe.aprovadoMs && deliveredMs(r) < proMe.aprovadoMs) return false;
+  if (r.contestacao && r.contestacao.status === 'aceita') return false;
+  if (r.paraMim) return true;
+  const quandoOk = QUANDO.indexOf(r.quando) <= 1;
+  const fx = FAIXA_IDX(r.faixa);
+  return quandoOk && fx !== 4 && fx >= Number(proMe.ticketMinimo || 0);
+}
+const canContest = (r) => isQualified(r) && !r.contestacao && Date.now() < deadline(r);
+const MOTIVOS = ['Fora do meu escopo de trabalho','Fora das regiões que atendo','Abaixo do meu ticket mínimo','Parece pedido falso ou duplicado','Contato do cliente não existe ou não responde'];
+let openCont = null;
+function reqState(r){
+  if (r.liberado) return 'liberado';
+  if (r.meuInteresse) return 'enviado';
+  if (r.status !== 'aberto' || expired(r)) return 'encerrado';
+  return 'novo';
+}
+async function loadReqs(){
+  try { REQS = await store.listPedidosForPro(); } catch (e){ console.error(e); REQS = []; }
+  const min = Number(proMe.ticketMinimo || 0);
+  // ticket mínimo declarado filtra só pedidos abertos à categoria; pedidos direcionados sempre aparecem
+  REQS = REQS.filter(r => r.paraMim || r.liberado || r.meuInteresse || FAIXA_IDX(r.faixa) === 4 || FAIXA_IDX(r.faixa) >= min);
+  renderReqs(); renderOverview();
+}
+function renderReqs(){
+  const counts = { todos: REQS.length, novo: 0, enviado: 0, liberado: 0, encerrado: 0 };
+  REQS.forEach(r => counts[reqState(r)]++);
+  $('#ctNovos').textContent = counts.novo; $('#ctNovos').hidden = !counts.novo;
+  $('#reqFilters').innerHTML = [['todos','Todos'],['novo','Novos'],['liberado','Com contato'],['encerrado','Encerrados']]
+    .map(([k, l]) => `<button type="button" data-f="${k}" aria-pressed="${reqFilter === k}">${l} (${counts[k]})</button>`).join('');
+  const list = REQS.filter(r => reqFilter === 'todos' || reqState(r) === reqFilter);
+  const LABEL = { novo:'NOVO', enviado:'INTERESSE ENVIADO', liberado:'COM CONTATO', encerrado:'ENCERRADO' };
+  $('#reqList').innerHTML = list.length ? list.map(r => {
+    const st = reqState(r);
+    let acts = '';
+    if (st === 'liberado'){
+      const c = r.contato || {};
+      acts = `<span class="info">${r.paraMim && !r.meuInteresse ? 'O cliente escolheu você na curadoria.' : 'Você respondeu a este pedido.'}
+        <strong>${esc(c.nome || '')}</strong> · ${esc(fmtWhats(c.whats || ''))}</span>
+        <a class="btn btn-solid" href="${waLink(c.whats || '', `Olá, ${(c.nome || '').split(' ')[0]}! Aqui é da ${proMe.nome}, recebemos o seu pedido pela Pórtico.`)}" target="_blank" rel="noopener">Chamar no WhatsApp</a>`;
+    } else if (st === 'enviado'){
+      acts = `<span class="info"><strong>Sua resposta:</strong> ${esc(r.meuInteresse.mensagem)}${r.meuInteresse.faixaOrcamento ? ' · ' + esc(r.meuInteresse.faixaOrcamento) : ''}<br>Aguardando o cliente liberar o contato.</span>`;
+    } else if (st === 'encerrado'){
+      acts = `<span class="info">${r.status !== 'aberto' ? 'O cliente encerrou este pedido.' : 'O prazo de 48h para responder terminou.'}</span>`;
+    } else if (openCont === r.id){
+      acts = '';
+    } else if (openInt === r.id){
+      acts = `<form class="ifrm" data-ifrm="${esc(r.id)}" novalidate>
+        <label for="im-${esc(r.id)}">MENSAGEM PARA O CLIENTE</label>
+        <textarea id="im-${esc(r.id)}" maxlength="600" placeholder="Por que a sua empresa é uma boa escolha para esta obra?"></textarea>
+        <p class="info" style="margin:0">Ao enviar, você recebe o nome e o WhatsApp do cliente. Chame o quanto antes.</p>
+        <label for="if-${esc(r.id)}">FAIXA DE ORÇAMENTO (OPCIONAL)</label>
+        <input id="if-${esc(r.id)}" maxlength="80" placeholder="Projeto entre R$ 25 e 35 mil">
+        <p class="err" id="ie-${esc(r.id)}" role="alert"></p>
+        <div class="row-b"><button type="submit" class="btn btn-solid">Enviar e receber o contato</button><button type="button" class="btn btn-line" data-cancel>Cancelar</button></div>
+      </form>`;
+    } else {
+      acts = `<button type="button" class="btn btn-solid" data-int="${esc(r.id)}">Tenho interesse</button>
+        <span class="info">Responda até ${fmtWhen(deadline(r))}.</span>`;
+    }
+    const q = isQualified(r);
+    const cont = r.contestacao ? `<span class="st-pill cont">${r.contestacao.status === 'aceita' ? 'CONTESTAÇÃO ACEITA' : r.contestacao.status === 'recusada' ? 'CONTESTAÇÃO RECUSADA' : 'CONTESTAÇÃO EM ANÁLISE'}</span>` : '';
+    let contForm = '';
+    if (openCont === r.id){
+      contForm = `<form class="ifrm" data-cfrm="${esc(r.id)}" novalidate>
+        <label for="cm-${esc(r.id)}">POR QUE ESTE PEDIDO NÃO DEVERIA CONTAR?</label>
+        <select id="cm-${esc(r.id)}">${MOTIVOS.map(m => `<option>${m}</option>`).join('')}</select>
+        <label for="cd-${esc(r.id)}">DETALHE (OPCIONAL)</label>
+        <input id="cd-${esc(r.id)}" maxlength="200" placeholder="Ex.: não fazemos obras comerciais">
+        <p class="err" id="ce-${esc(r.id)}" role="alert"></p>
+        <div class="row-b"><button type="submit" class="btn btn-solid">Enviar contestação</button><button type="button" class="btn btn-line" data-ccancel>Cancelar</button></div>
+      </form>`;
+    } else if (canContest(r)){
+      acts += `<button type="button" class="text-btn" data-cont="${esc(r.id)}" style="margin-left:auto">Contestar pedido</button>`;
+    }
+    return `<article class="req">
+      <div class="req-top"><div><h3>${esc(r.tipo)} · ${esc(r.imovel)}${r.m2 ? ', ' + esc(r.m2) + ' m²' : ''}</h3><span class="when">Recebido ${ago(deliveredMs(r))}</span></div>
+        <div class="pills">${r.paraMim ? '<span class="st-pill para">ESCOLHEU VOCÊ</span>' : ''}${q ? '<span class="st-pill qual">PEDIDO QUALIFICADO</span>' : ''}${cont}<span class="st-pill ${st}">${LABEL[st]}</span></div></div>
+      <div class="req-grid">
+        <div><span class="k">Bairro</span><span>${esc(r.bairro)}</span></div>
+        <div><span class="k">Investimento</span><span>${esc(r.faixa)}</span></div>
+        <div><span class="k">Quando começa</span><span>${esc(r.quando)}</span></div>
+      </div>
+      ${r.descricao ? `<p class="desc">${esc(r.descricao)}</p>` : ''}
+      <div class="req-acts">${acts}${contForm}</div>
+    </article>`;
+  }).join('') : `<div class="hatch empty"><h3>Nada por aqui.</h3><p>Os novos pedidos da sua categoria aparecem nesta lista.</p></div>`;
+  const ta = $('#reqList textarea'); if (ta) ta.focus();
+}
+document.addEventListener('click', (e) => {
+  const f = e.target.closest('[data-f]'); if (f){ reqFilter = f.dataset.f; renderReqs(); return; }
+  const i = e.target.closest('[data-int]'); if (i){ openInt = i.dataset.int; renderReqs(); return; }
+  if (e.target.closest('[data-cancel]')){ openInt = null; renderReqs(); return; }
+  const ct = e.target.closest('[data-cont]'); if (ct){ openCont = ct.dataset.cont; openInt = null; renderReqs(); return; }
+  if (e.target.closest('[data-ccancel]')){ openCont = null; renderReqs(); return; }
+  const g = e.target.closest('[data-go]'); if (g){ showPane(g.dataset.go); }
+});
+document.addEventListener('submit', async (e) => {
+  const cf = e.target.closest('[data-cfrm]');
+  if (cf){
+    e.preventDefault();
+    const id = cf.dataset.cfrm, btn = cf.querySelector('button[type=submit]'); btn.disabled = true; btn.textContent = 'Enviando…';
+    try { await store.contestar(id, { motivo: $(`#cm-${id}`).value, detalhe: $(`#cd-${id}`).value.trim().slice(0, 200) }); openCont = null; await loadReqs(); }
+    catch (err){ console.error(err); $(`#ce-${id}`).textContent = 'Não foi possível enviar. O prazo de 48h pode ter terminado.'; btn.disabled = false; btn.textContent = 'Enviar contestação'; }
+    return;
+  }
+  const fm = e.target.closest('[data-ifrm]'); if (!fm) return;
+  e.preventDefault();
+  const id = fm.dataset.ifrm, msg = $(`#im-${id}`).value.trim(), fx = $(`#if-${id}`).value.trim();
+  if (msg.length < 10){ $(`#ie-${id}`).textContent = 'Escreva ao menos uma frase para o cliente.'; return; }
+  const btn = fm.querySelector('button[type=submit]'); btn.disabled = true; btn.textContent = 'Enviando…';
+  try { await store.sendInteresse(id, { mensagem: msg.slice(0, 600), faixaOrcamento: fx.slice(0, 80) }); openInt = null; await loadReqs(); }
+  catch (err){ console.error(err); $(`#ie-${id}`).textContent = 'Não foi possível enviar. O prazo pode ter terminado.'; btn.disabled = false; btn.textContent = 'Enviar interesse'; }
+});
+
+function renderOverview(){
+  const n = (s) => REQS.filter(r => reqState(r) === s).length;
+  $('#kpis').innerHTML = [
+    ['PEDIDOS QUALIFICADOS', REQS.filter(isQualified).length, `de ${REQS.length} recebidos`],
+    ['INTERESSES ENVIADOS', REQS.filter(r => r.meuInteresse).length, 'respostas suas'],
+    ['CONTATOS RECEBIDOS', n('liberado'), 'clientes para chamar'],
+    ['ÍNDICE', fmtNota(proMe.indice), 'mínimo 8,0']
+  ].map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
+  $('#trialCard').hidden = !proMe.fundador;
+  if (proMe.fundador){
+    const N = PLANOS.trialPedidos, T = PLANOS.trialDias;
+    const ped = Math.min(N, REQS.filter(isQualified).length);
+    const dias = proMe.aprovadoMs ? Math.min(T, Math.floor((Date.now() - proMe.aprovadoMs) / 864e5)) : 0;
+    const fim = ped >= N || dias >= T;
+    $('#trialPed').textContent = `${ped} de ${N} pedidos qualificados`;
+    $('#trialDays').textContent = `${dias} de ${T} dias`;
+    $('#trialBar').style.width = Math.max(ped / N, dias / T) * 100 + '%';
+    $('#trialCard .cs').innerHTML = fim
+      ? (ped >= N ? `Período fundador concluído com ${N} pedidos qualificados. Escolha o seu plano para manter a cadeira, com 30% de desconto travado.`
+                  : `Os 90 dias terminaram com ${ped} pedido${ped === 1 ? '' : 's'} qualificado${ped === 1 ? '' : 's'}. Você escolhe: sair sem pagar nada ou começar o plano com 30% de desconto.`)
+        + ' <button type="button" class="text-btn" data-go="plano">Ver planos</button>'
+      : `Gratuito até completar ${T} dias ou receber ${N} pedidos qualificados, o que vier primeiro. Depois, 30% de desconto travado.`;
+  }
+  const todo = [];
+  const novos = n('novo');
+  if (novos) todo.push([`${novos} pedido${novos > 1 ? 's' : ''} aguardando a sua resposta`, 'O prazo é de 48h a partir do envio', 'pedidos', 'Ver pedidos']);
+  const libs = REQS.filter(r => reqState(r) === 'liberado').length;
+  if (libs) todo.push([`${libs} cliente${libs > 1 ? 's' : ''} esperando o seu contato`, 'Chame pelo WhatsApp o quanto antes', 'pedidos', 'Ver contatos']);
+  const faltam = profileChecks().filter(c => !c[1]).length;
+  if (faltam) todo.push([`Perfil com ${faltam} ite${faltam > 1 ? 'ns' : 'm'} pendente${faltam > 1 ? 's' : ''}`, 'Perfis completos recebem mais respostas', 'perfil', 'Completar']);
+  todo.push(['Post do trimestre disponível', 'Incluso no plano anual', 'conteudo', 'Ver']);
+  $('#todo').innerHTML = todo.map(([t, s, p, b]) => `<div><span>${t}<small>${s}</small></span><button type="button" class="btn btn-line" data-go="${p}">${b}</button></div>`).join('');
+}
+function profileChecks(){
+  return [['Nome e categoria', true], ['Descrição curta', !!proMe.descricaoCurta], ['Regiões que atende', !!proMe.regioes],
+          ['Ticket mínimo definido', proMe.ticketMinimo != null], ['Portfólio ou Instagram', !!proMe.portfolio], ['WhatsApp comercial', !!proMe.whats]];
+}
+function renderPanel(){
+  $('#pnName').textContent = proMe.nome;
+  $('#pnSub').textContent = `${proMe.cadeira ? 'Cadeira ' + proMe.cadeira + ' · ' : ''}${catName(proMe.categoria)}`;
+  $('#pnChips').innerHTML = (proMe.fundador ? '<span class="chip gold">FUNDADOR</span>' : '') + `<span class="chip">ÍNDICE ${fmtNota(proMe.indice)}</span>` +
+    (store.mode === 'demo' ? '<span class="chip">DEMONSTRAÇÃO</span>' : '');
+  $('#idxTitle').textContent = `Meu índice: ${fmtNota(proMe.indice)}`;
+  const cr = proMe.criterios || {};
+  $('#myScores').innerHTML = CRITERIA.map(([, t, , w, key]) => `<div class="score-row"><span>${t} <span style="color:var(--muted)">(${w}%)</span></span>
+    <span class="barl"><i style="width:${(cr[key] || 0) * 10}%"></i></span><b>${fmtNota(cr[key])}</b></div>`).join('')
+    + (Object.keys(cr).length ? '' : '<p class="cs" style="margin:16px 0 0">As notas aparecem depois da primeira obra avaliada.</p>');
+  $('#myCard').innerHTML = proCardHtml(proMe, { actions: false });
+  const ck = profileChecks();
+  $('#ckTitle').textContent = `Completar perfil · ${ck.filter(c => c[1]).length} de ${ck.length}`;
+  $('#checklist').innerHTML = ck.map(([t, on]) => `<div><span class="box${on ? ' on' : ''}" aria-hidden="true">${on ? '<svg width="11" height="11" viewBox="0 0 14 14"><path d="M1 7 L5.5 11 L13 2" fill="none" stroke="#F5F4F0" stroke-width="2"/></svg>' : ''}</span><span>${t}${on ? '' : ' <span style="color:var(--muted)">· pendente</span>'}</span></div>`).join('');
+  $('#e-desc').value = proMe.descricaoCurta || '';
+  $('#e-reg').value = proMe.regioes || '';
+  $('#e-tick').innerHTML = TICKETS.map((t, i) => `<option value="${i}"${Number(proMe.ticketMinimo || 0) === i ? ' selected' : ''}>${t}</option>`).join('');
+  $('#e-port').value = proMe.portfolio || '';
+  $('#e-whats').value = proMe.whats ? fmtWhats(proMe.whats) : '';
+  $('#planFacts').innerHTML = [
+    ['Cadeira', `${proMe.cadeira || '—'} · ${catName(proMe.categoria)}`],
+    ['Condição', proMe.fundador ? 'Fundador · 30% de desconto travado' : 'Padrão'],
+    ['Período sem custo', proMe.fundador ? `Até ${PLANOS.trialPedidos} pedidos qualificados ou ${PLANOS.trialDias} dias` : '—'],
+    ['Plano trimestral', `${brl(proMe.fundador ? PLANOS.trimestral.fundador : PLANOS.trimestral.total)} a cada 3 meses`],
+    ['Plano anual', `${brl(proMe.fundador ? PLANOS.anual.fundador : PLANOS.anual.total)} por ano, à vista ou em 12x · inclui 1 post por trimestre`],
+    ['Renovação', 'Condicionada ao Índice mínimo de 8,0']
+  ].map(([k, v]) => `<div><span>${k}</span><span>${esc(v)}</span></div>`).join('');
+}
+$('#formPerfil').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const w = digits($('#e-whats').value);
+  if (w && w.length < 10){ $('#perfErr').textContent = 'Confira o WhatsApp com DDD.'; return; }
+  $('#perfErr').textContent = '';
+  try {
+    await store.updatePro({ descricaoCurta: $('#e-desc').value.trim().slice(0, 80), regioes: $('#e-reg').value.trim().slice(0, 120),
+                            ticketMinimo: Number($('#e-tick').value), portfolio: $('#e-port').value.trim(), whats: w });
+    proMe = await store.currentPro(); renderPanel(); await loadReqs();
+    $('#perfErr').style.color = 'var(--brass)'; $('#perfErr').textContent = 'Perfil salvo.';
+    setTimeout(() => { $('#perfErr').textContent = ''; $('#perfErr').style.color = ''; }, 2500);
+  } catch (err){ console.error(err); $('#perfErr').textContent = 'Não foi possível salvar agora.'; }
+});
+function showPane(id){
+  $$('#side button').forEach(b => b.setAttribute('aria-current', b.dataset.pane === id));
+  $$('.pane').forEach(p => p.hidden = p.dataset.pane !== id);
+}
+$('#side').addEventListener('click', (e) => { const b = e.target.closest('button[data-pane]'); if (b) showPane(b.dataset.pane); });
+$('#talkBtn').addEventListener('click', () => window.open(waLink(WHATS_PORTICO, `Olá, Pórtico! Sou da ${proMe ? proMe.nome : ''} e quero falar sobre o meu plano.`), '_blank'));
+
+/* ===================== ROTEADOR ===================== */
+async function route(){
+  const h = location.hash;
+  const pedidoMatch = h.match(/^#\/pedido\/([\w-]+)/);
+  const isPro = h.startsWith('#/profissionais');
+  proMe = isPro ? await store.currentPro().catch(() => null) : proMe;
+  const member = isPro && proMe && proMe.status === 'ativo';
+  const cand = isPro && proMe && !member;
+
+  $('#viewB2C').hidden = isPro || !!pedidoMatch;
+  $('#viewPedido').hidden = !pedidoMatch;
+  $('#viewGate').hidden = !isPro || !!proMe;
+  $('#viewB2B').hidden = !cand;
+  $('#viewPanel').hidden = !member;
+  $('#hdr').classList.toggle('pro-mode', isPro);
+  $('#proTag').hidden = !isPro;
+  $('#navB2C').hidden = isPro || !!pedidoMatch; $('#ctaB2C').hidden = isPro;
+  $('#navB2B').hidden = !cand; $('#ctaB2B').hidden = !isPro;
+  $('#logout').hidden = !proMe || !isPro;
+
+  if (pedidoMatch){ window.scrollTo(0, 0); renderPedido(pedidoMatch[1]); }
+  if (cand) renderCandidate(proMe);
+  if (member){ renderPanel(); showPane('geral'); loadReqs(); }
+  if (isPro && !proMe) setTimeout(() => $('#cnpj').focus(), 50);
+  if (h === '#/' || h === '#/profissionais') window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', () => { if (location.hash.startsWith('#/')) route(); });
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const href = a.getAttribute('href'); if (href.startsWith('#/')) return;
+  e.preventDefault();
+  const el = document.getElementById(href.slice(1));
+  if (!el) return;
+  if (el.closest('main') && el.closest('main').hidden && $('#viewB2C').contains(el)){ location.hash = '#/'; setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 60); return; }
+  el.scrollIntoView({ behavior: 'smooth' });
+});
+
+await loadPros();
+await route();
+</script>
+</body>
+</html>
